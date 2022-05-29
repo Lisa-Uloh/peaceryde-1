@@ -5067,6 +5067,14 @@
           font-size: 14px;
           line-height: 16px;
       }
+      .contactus {
+        font-size: 40px;
+        text-align: center;
+        color: #0A0E69;
+        font-family: Rubik;
+        margin-bottom: 28px;
+        padding-top: 91px;
+    }
       .navbar-light .navbar-nav .nav-link
       {
         color: #000000;
