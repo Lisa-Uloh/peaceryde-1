@@ -60,7 +60,7 @@
     }
     .aboutpageheight
     {
-        height: 2000px;
+        height: 2500px;
     }
 
     .aboutimg1
@@ -217,6 +217,12 @@
         width:400px;
         height:266px;
     }
+    .imagebn2 {
+      width: 420px;
+      height: 300px;
+      margin-left: 30px;
+      margin-top: -1010px;
+  }
     .nbitext
     {
         font-size: 15px;
@@ -228,10 +234,14 @@
         line-height: 35px;
         letter-spacing: 0.04em;
         padding-left: 48px; 
-        padding-top: 61px;
+        padding-top: 21px;
         width: 460px;
     }
-   
+    .nbitext2 {
+      padding-left: 150px;
+      width: 550px;
+      margin-left: -100px;
+  }
     .buttons2 {
        
         background: #a0bd1c;
@@ -1508,7 +1518,7 @@ label {
     }
     .aboutpageheight
     {
-        height: 2000px;
+        height: 2600px;
     }
 
     .aboutimg1
@@ -1665,6 +1675,23 @@ label {
         width:320px;
         height:266px;
     }
+    .contactus {
+      font-size: 40px;
+      text-align: center;
+      color: #0A0E69;
+      font-family: Rubik;
+      margin-bottom: 28px;
+      padding-top: 145px;
+  }
+    .imagebn2 {
+      width: 320px;
+      height: 266px;
+      margin-left: 50px;
+      margin-top: -1150px;
+  }
+  .top2 {
+    margin-top: 300px;
+}
     .servicebtn {
       margin-top: 96px;
       margin-left: -365px;
@@ -1680,7 +1707,7 @@ label {
         line-height: 35px;
         letter-spacing: 0.04em;
         padding-left: 48px; 
-        padding-top: 61px;
+        padding-top: 21px;
         width: 370px;
     }
    
@@ -2406,22 +2433,22 @@ flex-direction: column-reverse;
 }
 .locaddress
 {
-font-size: 11px;
+font-size: 13px;
     color: #0A0E69;
     text-decoration: none;
     font-weight: 500;
 }
 .shorttest
 {
-font-size: 11px;font-weight: 500;  color: #0A0E69; padding-top: 4px; padding-bottom: 4px;
+font-size: 13px;font-weight: 500;  color: #0A0E69; padding-top: 4px; padding-bottom: 4px;
 }
 .privacy
 {
-font-size: 11px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
+font-size: 13px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
 }
 .tc
 {
-font-size: 11px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
+font-size: 13px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
 }
 
 
@@ -2608,8 +2635,8 @@ label {
     padding: 8px 8px 0px 18px;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 400;line-height: 23px;letter-spacing: 0em;text-align: left;color: #000000;
   }
   .nbitext2 {
-    padding-left: 100px;
-    width: 510px;
+    padding-left: 150px;
+    width: 490px;;
 }
   .vsbform
   {
@@ -4648,7 +4675,7 @@ padding-left: 35px;
   }
   .aboutpageheight
   {
-      height: 2200px;
+      height: 2450px;
   }
 
   .aboutimg1
@@ -4801,9 +4828,26 @@ padding-left: 35px;
       margin-left: 0px;
   }
   .imagebn {
-    width: 350px;
+    width: 320px;
     height: 300px;
-    margin-left: 15px;
+    margin-left: 30px;
+}
+.imagebn2 {
+  width: 320px;
+  height: 266px;
+  margin-left: 30px;
+  margin-top: -1060px;
+}
+.whoweare {
+  font-size: 40px;
+  /* text-align: center; */
+  color: #0A0E69;
+  font-family: Ubuntu;
+  margin-top: -90px;
+  margin-left: -20px;
+}
+.top2 {
+  margin-top: 350px;
 }
 .mt-75
 {
@@ -4823,22 +4867,20 @@ padding-left: 35px;
     line-height: 35px;
     letter-spacing: 0.04em;
     padding-left: 10px;
-    padding-top: 61px;
+    padding-top: 21px;
     width: 360px;
   }
   .nbitext2
   {
-    font-family: 'Ubuntu';
-    color: #0A0E69;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 35px;
-    letter-spacing: 0.04em;
-    padding-left: 100px;
+    padding-left: 50px;
     padding-top: 0px;
-    width: 430px;
+    width: 400px;
   }
+  .nbitext2 {
+    /* padding-left: 150px; */
+    /* width: 550px; */
+    margin-left: -30px;
+}
   
   .buttons3 {
       background: #a0bd1c;
@@ -5529,10 +5571,11 @@ padding-left: 35px;
  }
  .locaddress
  {
-  font-size: 11px;
+  font-size: 13px;
   color: #0A0E69;
   text-decoration: none;
   font-weight: 500;
+  margin-left: 10px;
  }
  .height
 {
@@ -5544,7 +5587,7 @@ padding-left: 35px;
 }
  .shorttest
  {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
     color: #0A0E69;
     padding-top: 0px;
@@ -5553,11 +5596,11 @@ padding-left: 35px;
  }
  .privacy
  {
-  font-size: 11px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
+  font-size: 13px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
  }
  .tc
  {
-  font-size: 11px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
+  font-size: 13px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
  }
  
 /* NBV FORM STYLE */
@@ -6236,9 +6279,16 @@ padding-left: 35px;
   }
   .aboutpageheight
   {
-      height: 2200px;
+      height: 2500px;
   }
-
+  .whoweare {
+    font-size: 40px;
+    /* text-align: center; */
+    color: #0A0E69;
+    font-family: Ubuntu;
+    margin-top: 90px;
+    margin-left: -20px;
+}
   .aboutimg1
   {
       width:320px;
@@ -6391,8 +6441,14 @@ padding-left: 35px;
   }
   .imagebn {
     width: 300px;
-    height: 300px;
-    margin-left: 15px;
+    height: 266px;
+    margin-left: 18px;
+}
+.imagebn2 {
+  width: 300px;
+  height: 266px;
+  margin-left: 18px;
+  margin-top: -1060px;
 }
 .mt-75
 {
@@ -6412,21 +6468,17 @@ padding-left: 35px;
     line-height: 35px;
     letter-spacing: 0.04em;
     padding-left: 10px;
-    padding-top: 61px;
+    padding-top: 21px;
     width: 335px;
   }
   .nbitext2
   {
-    font-family: 'Ubuntu';
-    color: #0A0E69;
-    font-style: normal;
-    font-weight: 300;
+
     font-size: 13px;
-    line-height: 35px;
-    letter-spacing: 0.04em;
     padding-left: 10px;
     padding-top: 0px;
     width: 335px;
+    margin-left: 0px;
   }
   
   .buttons3 {
@@ -7767,7 +7819,7 @@ padding-left: 35px;
   }
   .aboutpageheight
   {
-      height: 2200px;
+      height: 2500px;
   }
 
   .aboutimg1
@@ -7921,10 +7973,24 @@ padding-left: 35px;
   {
       margin-left: 0px;
   }
+  .whoweare {
+    font-size: 40px;
+    /* text-align: center; */
+    color: #0A0E69;
+    font-family: Ubuntu;
+    margin-top: 50px;
+    margin-left: -20px;
+}
   .imagebn {
     width: 300px;
-    height: 300px;
+    height: 266px;
     margin-left: 15px;
+}
+.imagebn2 {
+  width: 300px;
+  height: 266px;
+  margin-left: 18px;
+  margin-top: -1130px;
 }
 .mt-75
 {
@@ -7936,29 +8002,19 @@ padding-left: 35px;
 }
   .nbitext
   {
-    font-family: 'Ubuntu';
-    color: #0A0E69;
-    font-style: normal;
-    font-weight: 300;
     font-size: 13px;
-    line-height: 35px;
-    letter-spacing: 0.04em;
     padding-left: 10px;
-    padding-top: 61px;
-    width: 335px;
+    padding-top: 21px;
+    width: 325px;
   }
   .nbitext2
   {
-    font-family: 'Ubuntu';
-    color: #0A0E69;
-    font-style: normal;
-    font-weight: 300;
     font-size: 13px;
     line-height: 35px;
     letter-spacing: 0.04em;
     padding-left: 10px;
     padding-top: 0px;
-    width: 335px;
+    width: 325px;
   }
   
   .buttons3 {
@@ -8535,7 +8591,7 @@ padding-left: 35px;
 }
  .lg-li
  {
-  font-size: 11px;
+  font-size: 13px;
   color: #080C58;
   font-weight: 500;
   margin-left: 20px;
@@ -8576,7 +8632,7 @@ padding-left: 35px;
  }
  .corp
  {
-  font: 11px "Ubuntu", Helvetica, Arial, serif;
+  font: 13px "Ubuntu", Helvetica, Arial, serif;
   color: #080c58;
   letter-spacing: 0px;
   margin-top: 8px;
@@ -8593,7 +8649,7 @@ padding-left: 35px;
  }
  .locaddress
  {
-  font-size: 11px;
+  font-size: 13px;
   color: #0A0E69;
   text-decoration: none;
   font-weight: 500;
@@ -8608,20 +8664,21 @@ padding-left: 35px;
 }
  .shorttest
  {
-    font-size: 11px;
-    font-weight: 500;
-    color: #0A0E69;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    white-space: pre-line;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0A0E69;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  white-space: inherit;
+  width: 300px;
  }
  .privacy
  {
-  font-size: 11px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
+  font-size: 13px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
  }
  .tc
  {
-  font-size: 11px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 10px;padding-bottom: 10px;
+  font-size: 13px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 10px;padding-bottom: 10px;
  }
  
 /* NBV FORM STYLE */
@@ -9258,7 +9315,7 @@ label {
   }
   .aboutpageheight
   {
-      height: 2000px;
+      height: 2700px;
   }
 
   .aboutimg1
@@ -9413,24 +9470,33 @@ label {
       margin-left: 0px;
   }
   .imagebn {
-    width: 320px;
-    height: 300px;
-    margin-left: 10px;
+    width: 280px;
+    height: 260px;
+    margin-left: 5px;
+}
+.imagebn2 {
+  width: 280px;
+    height: 260px;
+    margin-left: 5px;
+    margin-top: -1200px;
 }
   .nbitext
   {
-      font-size: 15px;
-      font-family: 'Ubuntu';
-      color: #0A0E69;
-      font-style: normal;
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 35px;
-      letter-spacing: 0.04em;
-      padding-left: 18px; 
-      padding-top: 61px;
-      width: 350px;
+    font-size: 13px;
+    line-height: 35px;
+    letter-spacing: 0.04em;
+    padding-left: 18px; 
+    padding-top: 21px;
+    width: 285px;
   }
+  .nbitext2 {
+    font-size: 13px;
+    line-height: 35px;
+    letter-spacing: 0.04em;
+    padding-left: 10px;
+    padding-top: 0px;
+    width: 285px;
+}
   
   .buttons3 {
       background: #a0bd1c;
@@ -9988,7 +10054,7 @@ label {
  }
  .lg-li
  {
-  font-size: 11px;
+  font-size: 13px;
   color: #080C58;
   font-weight: 500;
   margin-left: 30px;
@@ -9996,25 +10062,25 @@ label {
  }
  .div2
  {
-  font-size: 11px;
+  font-size: 13px;
   padding-left: 30px;
   margin-top:230px;
  }
  .div3
  {
-  font-size: 11px;
+  font-size: 13px;
   padding-left: 30px;
   margin-top: 0px;
  }
  .div4
  {
-  font-size: 11px;
+  font-size: 13px;
   padding-left: 30px;
   margin-top: 0px;
  }
  .footh3
  {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 18px;
  }
@@ -10049,22 +10115,22 @@ label {
  }
  .locaddress
  {
-  font-size: 10px;
+  font-size: 13px;
    color: #0A0E69;
     text-decoration: none;
      font-weight: 500;
  }
  .shorttest
  {
-  font-size: 10px;font-weight: 500;  color: #0A0E69; padding-top: 10px; padding-bottom: 10px;
+  font-size: 13px;font-weight: 500;  color: #0A0E69; padding-top: 10px; padding-bottom: 10px;
  }
  .privacy
  {
-  font-size: 10px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
+  font-size: 13px;font-weight: 500; color: #0A0E69; text-decoration: none; padding-top: 30px;
  }
  .tc
  {
-  font-size: 10px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
+  font-size: 13px;font-weight: 500; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
  }
  
 /* NBV FORM STYLE */
@@ -10737,7 +10803,7 @@ text-decoration: none;
     }
     .aboutpageheight
     {
-        height: 2000px;
+        height: 2900px;
     }
 
     .aboutimg1
@@ -10894,22 +10960,31 @@ text-decoration: none;
     .imagebn {
       width: 250px;
       height: 250px;
-      margin-left: 20px;
+      margin-left: 0px;
   }
+  .imagebn2 {
+    width: 250px;
+    height: 250px;
+    margin-left: 0px;
+    margin-top: -1350px;
+}
     .nbitext
     {
-        font-size: 15px;
-        font-family: 'Ubuntu';
-        color: #0A0E69;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 15px;
+        font-size: 13px;
         line-height: 35px;
         letter-spacing: 0.04em;
         padding-left: 18px; 
-        padding-top: 61px;
+        padding-top: 21px;
         width: 250px;
     }
+    .nbitext2 {
+      font-size: 13px;
+      line-height: 35px;
+      letter-spacing: 0.04em;
+      padding-left: 10px;
+      padding-top: 0px;
+      width: 250px;
+  }
     .infobtn
     {
         margin-top: 23px;margin-left: 35px;
@@ -11457,7 +11532,7 @@ text-decoration: none;
    }
    .lg-li
    {
-    font-size: 10px;
+    font-size: 13px;
     color: #080C58;
     font-weight: 500;
     margin-left: 20px;
@@ -11480,14 +11555,21 @@ text-decoration: none;
    }
    .footh3
    {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 700;
     line-height: 18px;
    }
-
+   .contactus {
+    font-size: 40px;
+    text-align: center;
+    color: #0A0E69;
+    font-family: Rubik;
+    margin-bottom: 28px;
+    padding-top: 145px;
+}
    .fs-13
    {
-    font-size: 13px;
+    font-size: 12px;
      color: #080C58;
      font-weight: 400;
    }
@@ -11498,7 +11580,7 @@ text-decoration: none;
    }
    .corp
    {
-    font: 10px "Ubuntu", Helvetica, Arial, serif;
+    font: 13px "Ubuntu", Helvetica, Arial, serif;
     color: #080c58;
     letter-spacing: 0px;
     margin-top: 8px;
@@ -11515,23 +11597,28 @@ text-decoration: none;
    }
    .locaddress
    {
-    font-size: 10px;
+    font-size: 13px;
      color: #0A0E69;
       text-decoration: none;
        font-weight: 400;
    }
    .shorttest
    {
-    font-size: 10px;font-weight: 400;  color: #0A0E69; padding-top: 0px; padding-bottom: 0px;
-    display: inline;
+    font-size: 13px;
+    font-weight: 400;
+    color: #0A0E69;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    /* display: inline; */
+    width: 250px;
    }
    .privacy
    {
-    font-size: 10px;font-weight: 400; color: #0A0E69; text-decoration: none; padding-top: 30px;
+    font-size: 13px;font-weight: 400; color: #0A0E69; text-decoration: none; padding-top: 30px;
    }
    .tc
    {
-    font-size: 10px;font-weight: 400; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
+    font-size: 13px;font-weight: 400; margin-left: 0px; color: #0A0E69;text-decoration: none; padding-top: 30px;padding-bottom: 30px;
    }
   
 /* NBV FORM STYLE */

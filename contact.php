@@ -41,10 +41,9 @@
     <main class="new new-main layout">
         <!-- ======= section1 ======= -->
         <?php include("./inc/header.php"); ?>
-            <section class=" new-section2__group layout2 contactheight" style="background-color: #f8f6f6;">
+        <section class=" new-section2__group layout2 contactheight" style="background-color: #f8f6f6;">
                 <div class="new-section1__cover-block layout">
-                    <h1 style="font-size: 40px; text-align: center; color: #0A0E69; font-family:Rubik; margin-bottom: 78px; padding-top: 91px;"
-                       >
+                    <h1 class="contactus">
                         Contact Us
                     </h1>
                     <div class="row">

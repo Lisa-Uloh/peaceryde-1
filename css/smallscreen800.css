@@ -184,7 +184,7 @@
 }
 
 .cont{
-    margin-top: 139px;
+    margin-top: 49px;
     padding-left: 206px;
 }
     /*INDEX PAGE*/
@@ -1288,7 +1288,7 @@
       display: none;
     }
     .cont{
-        margin-top: 139px; padding-left: 56px;
+        margin-top: 49px; padding-left: 56px;
     }
     .contactcard
     {
@@ -1393,7 +1393,7 @@
 }
 
 .cont{
-    margin-top: 139px;
+    margin-top: 49px;
     padding-left: 206px;
 }
     /*INDEX PAGE*/
@@ -2486,7 +2486,7 @@
       display: none;
     }
     .cont{
-        margin-top: 139px; padding-left: 56px;
+        margin-top: 49px; padding-left: 56px;
     }
     .contactcard
     {
@@ -2588,7 +2588,7 @@
 }
 
 .cont{
-    margin-top: 139px;
+    margin-top: 49px;
     padding-left: 206px;
 }
     /*INDEX PAGE*/
@@ -3652,7 +3652,7 @@
     }
     .imagebn2
     {
-      width: 353px;
+      width: 313px;
       height: 244px;
       margin-left: 50px;
     }
@@ -3668,7 +3668,7 @@
       display: none;
     }
     .cont{
-        margin-top: 139px; padding-left: 36px;
+        margin-top: 49px; padding-left: 36px;
     }
     .contactcard
     {
@@ -3777,7 +3777,7 @@
 }
 
 .cont{
-    margin-top: 139px;
+    margin-top: 49px;
     padding-left: 206px;
 }
     /*INDEX PAGE*/
@@ -4242,7 +4242,7 @@
      }
      .aboutpageheight
      {
-         height: 1500px;
+         height: 2000px;
      }
      input[type=radio],
      input.radio {
@@ -4807,22 +4807,22 @@
     }
     .imagebn2
     {
-      display: none;
+      display: block;
       /* width: 313px;
       height: 244px;
       margin-left: 100px; */
     }
     .nbitext2
     {
-      padding-left: 105px;
-      width: 730px;
+      padding-left: 80px;
+      width: 400px;
     }
     .col-md-1
     {
       display: none;
     }
     .cont{
-        margin-top: 139px; padding-left: 36px;
+        margin-top: 49px; padding-left: 36px;
     }
     .contactcard
     {
@@ -5382,7 +5382,7 @@
      }
      .aboutpageheight
      {
-         height: 1700px;
+         height: 2200px;
      }
      input[type=radio],
      input.radio {
@@ -5932,29 +5932,48 @@
     {
         margin-left: 190px;
     }
+    .whoweare {
+      font-size: 40px;
+      text-align: center;
+      color: #0A0E69;
+      font-family: Ubuntu;
+      margin-bottom: 58px;
+  }
+  .whatwedo {
+    font-size: 40px;
+    text-align: center;
+    color: #0A0E69;
+    font-family: Ubuntu;
+    margin-top: 78px;
+}
     .imagebn
     {
       width: 420px;
-      height: 300px;
-      margin-left: 50px;
+    height: 300px;
+    margin-left: 30px;
       
     }
     .nbitext
     {
       padding-left: 0px;
-      width: 530px;
+      width: 500px;
       margin-top: 27px;
     }
     .imagebn2
     {
-      width: 313px;
-      height: 244px;
-      margin-left: 100px;
+      width: 420px;
+      height: 300px;
+      margin-left: 30px;
+      margin-top: -900px;
+    }
+    .top2
+    {
+      margin-top: 350px;
     }
     .nbitext2
     {
-      padding-left: 0px;
-    width: 530px;
+      padding-left: 80px;
+    width: 580px;
     }
     .col-md-1
     {
@@ -6058,7 +6077,7 @@
 }
 
 .cont{
-    margin-top: 139px;
+    margin-top: 49px;
     padding-left: 206px;
 }
     /*INDEX PAGE*/
@@ -7108,14 +7127,41 @@
         width:413px;
         height:344px;
     }
+    .imagebn2
+    {
+      width: 420px;
+      height: 300px;
+      margin-left: 30px;
+      margin-top: -900px;
+    }
+    .whatwedo {
+      font-size: 40px;
+      /* text-align: center; */
+      color: #0A0E69;
+      font-family: Ubuntu;
+      margin-top: 78px;
+      margin-left: -20px;
+  }
+  .whoweare {
+    font-size: 40px;
+    /* text-align: center; */
+    color: #0A0E69;
+    font-family: Ubuntu;
+   
+    margin-left: -20px;
+}
+    .top2
+    {
+      margin-top: 350px;
+    }
     .nbitext
     {
         font-size: 18px;
-        padding-left: 35px; 
+        padding-left: 5px; 
         width: 500px;
     }
     .cont{
-      margin-top: 9px;
+      margin-top: 49px;
       padding-left: 106px;
     }
     .contactcard
@@ -7263,7 +7309,7 @@
 }
 
 .cont{
-    margin-top: 139px;
+    margin-top: 49px;
     padding-left: 206px;
 }
     /*INDEX PAGE*/
@@ -7678,7 +7724,7 @@
      }
      .div2
      {
-      padding-left: 30px;
+      padding-left: 0px;
      }
      .div3
      {
@@ -7692,7 +7738,7 @@
      }
      .fs-13
      {
-      font-size: 13px;
+      font-size: 12px;
        color: #0A0E69;
      }
      .lg-li
@@ -8303,19 +8349,35 @@
     {
         width:413px;
         height:344px;
+        margin-left: 40px;
+    }
+    .imagebn2
+    {
+      width: 420px;
+      height: 300px;
+      margin-left: 30px;
+      margin-top: -900px;
+    }
+    .top2
+    {
+      margin-top: 350px;
     }
     .nbitext
     {
-        font-size: 18px;
-        padding-left: 35px; 
+        font-size: 14px;
+        padding-left: 5px; 
         width: 500px;
     }
     .nbitext2 {
       padding-left: 100px;
-      width: 530px;
+      width: 590px;
   }
+  .nbitext2 {
+    margin-left: -95px;
+    /* width: 353px; */
+}
     .cont{
-      margin-top: 9px;
+      margin-top: 49px;
       padding-left: 106px;
     }
     .contactcard

@@ -10,6 +10,18 @@
 .bg-nav {
   background-color: #FBFCFB;
 }
+.whoweare
+{
+  font-size: 40px; text-align: center; color: #0A0E69; font-family:Ubuntu; margin-bottom: 78px;
+}
+.whatwedo
+{
+  font-size: 40px; text-align: center; color: #0A0E69; font-family:Ubuntu; margin-top: 78px;
+}
+.contactus
+{
+  font-size: 40px; text-align: center; color: #0A0E69; font-family:Rubik; margin-bottom: 78px; padding-top: 91px;
+}
 .imagebn2
 {
   width: 513px;
@@ -598,7 +610,7 @@ button:focus:not(:focus-visible) {
         width: 500px;
     }
     .cont{
-        margin-top: 79px; padding-left: 806px;
+        margin-top: 49px; padding-left: 806px;
     }
     .contactcard
     {
@@ -1797,7 +1809,7 @@ label {
       width: 513px;
   }
     .cont{
-        margin-top: 79px; padding-left: 506px;
+        margin-top: 49px; padding-left: 506px;
     }
     .contactcard
     {
@@ -3003,7 +3015,7 @@ label {
         width: 600px;
     }
     .cont{
-        margin-top: 79px; padding-left: 306px;
+        margin-top: 49px; padding-left: 306px;
     }
     .contactcard
     {
@@ -4192,7 +4204,7 @@ label {
       width: 600px;
   }
     .cont{
-        margin-top: 79px; padding-left: 306px;
+        margin-top: 49px; padding-left: 306px;
     }
     .contactcard
     {
@@ -5372,7 +5384,7 @@ label {
         width: 600px;
     }
     .cont{
-        margin-top: 79px; padding-left: 306px;
+        margin-top: 49px; padding-left: 306px;
     }
     .contactcard
     {
@@ -6543,7 +6555,7 @@ label {
     }
     
     .cont{
-        margin-top: 79px; padding-left: 206px;
+        margin-top: 49px; padding-left: 206px;
     }
     .contactcard
     {
@@ -7728,7 +7740,7 @@ label {
         width: 700px;
     }
     .cont{
-        margin-top: 79px; padding-left: 206px;
+        margin-top: 49px; padding-left: 206px;
     }
     .contactcard
     {
@@ -8927,7 +8939,7 @@ label {
           width: 600px;
       }
       .cont{
-          margin-top: 79px; padding-left: 186px;
+          margin-top: 49px; padding-left: 186px;
       }
       .contactcard
       {
@@ -11026,7 +11038,7 @@ label {
           width: 600px;
       }
     .cont{
-        margin-top: 79px; padding-left: 156px;
+        margin-top: 49px; padding-left: 156px;
     }
     .contactcard
     {
@@ -12160,7 +12172,7 @@ label {
         width: 500px;
     }
     .cont{
-        margin-top: 79px; padding-left: 116px;
+        margin-top: 49px; padding-left: 116px;
     }
     .contactcard
     {
