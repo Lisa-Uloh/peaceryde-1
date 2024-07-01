@@ -7,15 +7,15 @@ if (isset($_POST["apply"])) {
 
   switch ($type) {
     case 'TWP':
-      header("Location: ./NTWPForm.php");
+      header("Location: ./NTWPForm");
       break;
 
     case 'NBV':
-      header("Location: ./NBVForm.php");
+      header("Location: ./NBVForm");
       break;
 
     case 'NBI':
-      header("Location: ./BIForm.php");
+      header("Location: ./BIForm");
       break;
 
     default:
@@ -30,10 +30,12 @@ if (isset($_POST["apply"])) {
 <!--  This source code is exported from pxCode, you can get more document from https://www.pxcode.io  -->
 
 <head>
+  <?php include("./google_analytics.php"); ?>
   <meta charset="utf-8" />
+  <title>PeaceRyde Africa LLC - Apply</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon.png">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <!-- Latest compiled and minified CSS -->
@@ -52,12 +54,12 @@ if (isset($_POST["apply"])) {
   <link rel="stylesheet" type="text/css" href="css/Laptops.css">
   <link rel="stylesheet" type="text/css" href="css/smallscreen800.css">
   <link rel="stylesheet" type="text/css" href="css/responsive.css">
-
+  <!-- <link rel="stylesheet" type="text/css" href="css/header.css"> -->
 
   <script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/px2code/posize/build/v1.00.3.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <style>
     .new-section2__group.layout2 {
       position: relative;
@@ -65,6 +67,7 @@ if (isset($_POST["apply"])) {
     }
   </style>
 </head>
+
 
 
 <body class="body">
@@ -113,8 +116,7 @@ if (isset($_POST["apply"])) {
       </div>
     </section>
 
-    <section class="new-section8__section8 layout">
-    </section>
+           <?php include("./inc/footer.php"); ?><?php include("./inc/langChange.php") ?>
     <!-- ======= End section8 ======= -->
 
   </main>

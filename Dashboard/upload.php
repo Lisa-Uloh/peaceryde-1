@@ -1,11 +1,14 @@
 <?php include("./inc/check_session.php"); ?>
-
+<?php 
+  $messages = new Message($connect); 
+?>
 
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <head>
+  <?php include("../google_analytics.php"); ?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Tell the browser to be responsive to screen width -->
@@ -13,8 +16,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="./dist/image/logo.png">
-  <title>PeaceRyde</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="./dist/image/icon.png">
+  <title>PeaceRyde Africa LLC</title>
   <!-- Custom CSS -->
   <link href="./assets/extra-libs/c3/c3.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,11 +34,76 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <style>
+	div#google_translate_element {
+		visibility: hidden;
+		position: absolute;
+		z-index: -1;
+		/* display: none; */
+	}
 
+	div#google_translate_element div.goog-te-gadget-simple {
+		border: none;
+		background-color: transparent;
+		/*background-color: #17548d;*/
+		/*#e3e3ff*/
 
+	}
 
-  </style>
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value:hover {
+		text-decoration: none;
+	}
+
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span {
+		color: #aaa;
+	}
+
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span:hover {
+		color: white;
+	}
+
+	.goog-te-gadget-icon {
+		display: none !important;
+		/*background: url("url for the icon") 0 0 no-repeat !important;*/
+	}
+
+	/* Remove the down arrow */
+	/* when dropdown open */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="color: rgb(213, 213, 213);"] {
+		display: none;
+	}
+
+	/* after clicked/touched */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="color: rgb(118, 118, 118);"] {
+		display: none;
+	}
+
+	/* on page load (not yet touched or clicked) */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="color: rgb(155, 155, 155);"] {
+		display: none;
+	}
+
+	/* Remove span with left border line | (next to the arrow) in Chrome & Firefox */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="border-left: 1px solid rgb(187, 187, 187);"] {
+		display: none;
+	}
+
+	/* Remove span with left border line | (next to the arrow) in Edge & IE11 */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="border-left-color: rgb(187, 187, 187); border-left-width: 1px; border-left-style: solid;"] {
+		display: none;
+	}
+
+	/* HIDE the google translate toolbar */
+	.goog-te-banner-frame.skiptranslate {
+		display: none !important;
+	}
+
+	body {
+		top: 0px !important;
+	}
+</style>
 </head>
+
+
 
 <body>
   <div class="preloader">
@@ -57,13 +125,19 @@
     <!-- Sidebar -->
 
     <div class="page-wrapper" id="main" style="background-color: #e5e5e5;">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()"> <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;
+                margin-top: 50px;">
+          <rect y="6" width="19" height="3" fill="#A0BD1C" />
+          <rect y="12" width="19" height="3" fill="#A0BD1C" />
+          <rect width="19" height="3" fill="#A0BD1C" />
+        </svg>
+      </span>
       <div class="">
         <div class="row">
           <div class="align-self-center">
             <div class="row">
               <div class="">
-                <h3 class="page-title text-truncate mb-1 documentext">Document</h3>
+                <h3 class="page-title text-truncate mb-1 documentext">My Documents</h3>
 
               </div>
             </div>
@@ -75,11 +149,11 @@
       <form action="./handler/upload_handler.php" method="post" enctype="multipart/form-data">
         <div>
           <p class="uploadtext">Upload your necessary documents</p>
-          <p class="pleaseupload">Please upload images of documents below. see more info about required files</p>
+          <p class="pleaseupload">Please name your documents, upload all relevant documents (example: passport photograph, international passport data page, proof of employment, flight itinerary etc), by browsing the "drop file here" link and then click the upload file button.</p>
         </div>
         <div class="form-group">
           <input type="hidden" name="id" value="<?= $USER_ID ?>">
-          <input name="name" type="text" style="width:307px;height:43px;border:1px solid #555555;font-size: 13px;" class="form-control" placeholder="Document Name">
+          <input name="name" type="text" required class="form-control upload-input" placeholder="Document Name">
         </div>
         <div class="drop-zone">
           <p class="drop-zonep"><svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,121 +164,38 @@
 
           <p class="dropfilep"><span class="drop-zone__prompt">Drop file here</span></p>
           <p class="dropfilep2"><span class="drop-zone__prompt">or browse file from your computer</span></p>
-          <input type="file" name="myFile" class="drop-zone__input">
+          <input type="file" required multiple name="myFile[]" class="drop-zone__input">
         </div>
-        <div class="mt-4 p-4 text-right">
-          <button name="upload" type="submit" class="btn border-0" style="background-color: #a0bd1c;">Upload file</button>
+        <div class="mt-4 p-4 text-left">
+          <button name="upload" type="submit" class="btn border-0" style="background-color: #a0bd1c; color: #fff; margin-left: 31px;">Upload file</button>
         </div>
       </form>
-
-      <div class="row">
-        <div class="col-md-6 h3div">
-          <h3 class="h3doc">Document</h3>
-          <p class="h3p">Please see the list of documents below that we need in order <br>to process your application </p>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3" style="margin-top:138px">
-          <p>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 0.375C8.09636 0.375 6.23546 0.939497 4.65264 1.99711C3.06982 3.05471 1.83616 4.55793 1.10766 6.31667C0.37917 8.07541 0.188563 10.0107 0.559946 11.8777C0.931329 13.7448 1.84802 15.4598 3.1941 16.8059C4.54018 18.152 6.25519 19.0687 8.12226 19.4401C9.98933 19.8114 11.9246 19.6208 13.6833 18.8923C15.4421 18.1638 16.9453 16.9302 18.0029 15.3474C19.0605 13.7645 19.625 11.9036 19.625 10C19.625 7.44729 18.6109 4.99913 16.8059 3.1941C15.0009 1.38906 12.5527 0.375 10 0.375ZM10 18.25C8.36831 18.25 6.77326 17.7661 5.41655 16.8596C4.05984 15.9531 3.00242 14.6646 2.378 13.1571C1.75358 11.6496 1.5902 9.99085 1.90853 8.3905C2.22685 6.79016 3.01259 5.32015 4.16637 4.16637C5.32016 3.01259 6.79017 2.22685 8.39051 1.90852C9.99085 1.59019 11.6497 1.75357 13.1571 2.37799C14.6646 3.00242 15.9531 4.05984 16.8596 5.41655C17.7661 6.77325 18.25 8.3683 18.25 10C18.25 12.188 17.3808 14.2865 15.8336 15.8336C14.2865 17.3808 12.188 18.25 10 18.25Z" fill="#5A5A5A" />
-              <path d="M9.3125 4.5H10.6875V12.0625H9.3125V4.5Z" fill="#5A5A5A" />
-              <path d="M10 14.125C9.79604 14.125 9.59666 14.1855 9.42707 14.2988C9.25748 14.4121 9.1253 14.5732 9.04725 14.7616C8.9692 14.95 8.94877 15.1574 8.98857 15.3574C9.02836 15.5575 9.12657 15.7412 9.2708 15.8855C9.41502 16.0297 9.59877 16.1279 9.79881 16.1677C9.99886 16.2075 10.2062 16.1871 10.3946 16.109C10.5831 16.0309 10.7441 15.8988 10.8575 15.7292C10.9708 15.5596 11.0313 15.3602 11.0313 15.1562C11.0313 14.8827 10.9226 14.6204 10.7292 14.427C10.5358 14.2336 10.2735 14.125 10 14.125Z" fill="#5A5A5A" />
-            </svg>
-            <span style="font-family: Rubik;color:#000000;
-                            font-size: 16px;
-                            font-style: normal;
-                            font-weight: 400;
-                            ">0 out of 5 file uploaded</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- <div class="card tablecard">
-                <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col" style="color:#0A0B0D;font-family: Segoe UI;padding-left:16px;font-size: 14px;font-style: normal;font-weight: 600;">Document type</th>
-                        <th scope="col" style="color:#0A0B0D;font-family: Segoe UI;font-size: 14px;font-style: normal;font-weight: 600;">Status</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                       
-                      <tr>
-                        <th scope="row" style="padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;">lorem</th>
-                        <td style="padding-top:25px;"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0.625C7.26942 0.625 5.57769 1.08686 4.13876 1.95218C2.69983 2.81749 1.57832 4.0474 0.916058 5.48637C0.253791 6.92534 0.080512 8.50874 0.418133 10.0363C0.755753 11.5639 1.58911 12.9671 2.81282 14.0685C4.03653 15.1698 5.59563 15.9198 7.29296 16.2237C8.9903 16.5275 10.7496 16.3716 12.3485 15.7756C13.9473 15.1795 15.3139 14.1702 16.2754 12.8751C17.2368 11.5801 17.75 10.0575 17.75 8.5C17.75 6.41142 16.8281 4.40838 15.1872 2.93153C13.5462 1.45469 11.3206 0.625 9 0.625ZM9 15.25C7.51664 15.25 6.0666 14.8541 4.83323 14.1124C3.59986 13.3707 2.63856 12.3165 2.07091 11.0831C1.50325 9.84971 1.35473 8.49251 1.64411 7.18314C1.9335 5.87377 2.64781 4.67103 3.6967 3.72703C4.7456 2.78302 6.08197 2.14015 7.53683 1.8797C8.99168 1.61925 10.4997 1.75292 11.8701 2.26381C13.2406 2.7747 14.4119 3.63987 15.236 4.7499C16.0601 5.85993 16.5 7.16498 16.5 8.5C16.5 10.2902 15.7098 12.0071 14.3033 13.273C12.8968 14.5388 10.9891 15.25 9 15.25Z" fill="#5B616E"/>
-                            <path d="M8.375 4H9.625V10.1875H8.375V4Z" fill="#5B616E"/>
-                            <path d="M9 11.875C8.81458 11.875 8.63332 11.9245 8.47915 12.0172C8.32498 12.1099 8.20482 12.2417 8.13386 12.3959C8.06291 12.55 8.04434 12.7197 8.08051 12.8834C8.11669 13.047 8.20598 13.1974 8.33709 13.3154C8.4682 13.4334 8.63525 13.5137 8.8171 13.5463C8.99896 13.5788 9.18746 13.5621 9.35877 13.4983C9.53007 13.4344 9.67649 13.3263 9.7795 13.1875C9.88252 13.0488 9.9375 12.8856 9.9375 12.7187C9.9375 12.495 9.83873 12.2804 9.66291 12.1221C9.4871 11.9639 9.24864 11.875 9 11.875Z" fill="#5B616E"/>
-                            </svg>
-                            <span style="color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;">Awaiting uploads</span></td>                        
-                      </tr>
-                      <tr>
-                        <th scope="row" style="padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;">lorem</th>
-                        <td style="padding-top:25px;"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0.625C7.26942 0.625 5.57769 1.08686 4.13876 1.95218C2.69983 2.81749 1.57832 4.0474 0.916058 5.48637C0.253791 6.92534 0.080512 8.50874 0.418133 10.0363C0.755753 11.5639 1.58911 12.9671 2.81282 14.0685C4.03653 15.1698 5.59563 15.9198 7.29296 16.2237C8.9903 16.5275 10.7496 16.3716 12.3485 15.7756C13.9473 15.1795 15.3139 14.1702 16.2754 12.8751C17.2368 11.5801 17.75 10.0575 17.75 8.5C17.75 6.41142 16.8281 4.40838 15.1872 2.93153C13.5462 1.45469 11.3206 0.625 9 0.625ZM9 15.25C7.51664 15.25 6.0666 14.8541 4.83323 14.1124C3.59986 13.3707 2.63856 12.3165 2.07091 11.0831C1.50325 9.84971 1.35473 8.49251 1.64411 7.18314C1.9335 5.87377 2.64781 4.67103 3.6967 3.72703C4.7456 2.78302 6.08197 2.14015 7.53683 1.8797C8.99168 1.61925 10.4997 1.75292 11.8701 2.26381C13.2406 2.7747 14.4119 3.63987 15.236 4.7499C16.0601 5.85993 16.5 7.16498 16.5 8.5C16.5 10.2902 15.7098 12.0071 14.3033 13.273C12.8968 14.5388 10.9891 15.25 9 15.25Z" fill="#5B616E"/>
-                            <path d="M8.375 4H9.625V10.1875H8.375V4Z" fill="#5B616E"/>
-                            <path d="M9 11.875C8.81458 11.875 8.63332 11.9245 8.47915 12.0172C8.32498 12.1099 8.20482 12.2417 8.13386 12.3959C8.06291 12.55 8.04434 12.7197 8.08051 12.8834C8.11669 13.047 8.20598 13.1974 8.33709 13.3154C8.4682 13.4334 8.63525 13.5137 8.8171 13.5463C8.99896 13.5788 9.18746 13.5621 9.35877 13.4983C9.53007 13.4344 9.67649 13.3263 9.7795 13.1875C9.88252 13.0488 9.9375 12.8856 9.9375 12.7187C9.9375 12.495 9.83873 12.2804 9.66291 12.1221C9.4871 11.9639 9.24864 11.875 9 11.875Z" fill="#5B616E"/>
-                            </svg>
-                            <span style="color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;">Awaiting uploads</span></td>                        
-                      </tr>
-                      <tr>
-                        <th scope="row" style="padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;">lorem</th>
-                        <td style="padding-top:25px;"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0.625C7.26942 0.625 5.57769 1.08686 4.13876 1.95218C2.69983 2.81749 1.57832 4.0474 0.916058 5.48637C0.253791 6.92534 0.080512 8.50874 0.418133 10.0363C0.755753 11.5639 1.58911 12.9671 2.81282 14.0685C4.03653 15.1698 5.59563 15.9198 7.29296 16.2237C8.9903 16.5275 10.7496 16.3716 12.3485 15.7756C13.9473 15.1795 15.3139 14.1702 16.2754 12.8751C17.2368 11.5801 17.75 10.0575 17.75 8.5C17.75 6.41142 16.8281 4.40838 15.1872 2.93153C13.5462 1.45469 11.3206 0.625 9 0.625ZM9 15.25C7.51664 15.25 6.0666 14.8541 4.83323 14.1124C3.59986 13.3707 2.63856 12.3165 2.07091 11.0831C1.50325 9.84971 1.35473 8.49251 1.64411 7.18314C1.9335 5.87377 2.64781 4.67103 3.6967 3.72703C4.7456 2.78302 6.08197 2.14015 7.53683 1.8797C8.99168 1.61925 10.4997 1.75292 11.8701 2.26381C13.2406 2.7747 14.4119 3.63987 15.236 4.7499C16.0601 5.85993 16.5 7.16498 16.5 8.5C16.5 10.2902 15.7098 12.0071 14.3033 13.273C12.8968 14.5388 10.9891 15.25 9 15.25Z" fill="#5B616E"/>
-                            <path d="M8.375 4H9.625V10.1875H8.375V4Z" fill="#5B616E"/>
-                            <path d="M9 11.875C8.81458 11.875 8.63332 11.9245 8.47915 12.0172C8.32498 12.1099 8.20482 12.2417 8.13386 12.3959C8.06291 12.55 8.04434 12.7197 8.08051 12.8834C8.11669 13.047 8.20598 13.1974 8.33709 13.3154C8.4682 13.4334 8.63525 13.5137 8.8171 13.5463C8.99896 13.5788 9.18746 13.5621 9.35877 13.4983C9.53007 13.4344 9.67649 13.3263 9.7795 13.1875C9.88252 13.0488 9.9375 12.8856 9.9375 12.7187C9.9375 12.495 9.83873 12.2804 9.66291 12.1221C9.4871 11.9639 9.24864 11.875 9 11.875Z" fill="#5B616E"/>
-                            </svg>
-                            <span style="color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;">Awaiting uploads</span></td>                        
-                      </tr>
-                      <tr>
-                        <th scope="row" style="padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;">lorem</th>
-                        <td style="padding-top:25px;"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0.625C7.26942 0.625 5.57769 1.08686 4.13876 1.95218C2.69983 2.81749 1.57832 4.0474 0.916058 5.48637C0.253791 6.92534 0.080512 8.50874 0.418133 10.0363C0.755753 11.5639 1.58911 12.9671 2.81282 14.0685C4.03653 15.1698 5.59563 15.9198 7.29296 16.2237C8.9903 16.5275 10.7496 16.3716 12.3485 15.7756C13.9473 15.1795 15.3139 14.1702 16.2754 12.8751C17.2368 11.5801 17.75 10.0575 17.75 8.5C17.75 6.41142 16.8281 4.40838 15.1872 2.93153C13.5462 1.45469 11.3206 0.625 9 0.625ZM9 15.25C7.51664 15.25 6.0666 14.8541 4.83323 14.1124C3.59986 13.3707 2.63856 12.3165 2.07091 11.0831C1.50325 9.84971 1.35473 8.49251 1.64411 7.18314C1.9335 5.87377 2.64781 4.67103 3.6967 3.72703C4.7456 2.78302 6.08197 2.14015 7.53683 1.8797C8.99168 1.61925 10.4997 1.75292 11.8701 2.26381C13.2406 2.7747 14.4119 3.63987 15.236 4.7499C16.0601 5.85993 16.5 7.16498 16.5 8.5C16.5 10.2902 15.7098 12.0071 14.3033 13.273C12.8968 14.5388 10.9891 15.25 9 15.25Z" fill="#5B616E"/>
-                            <path d="M8.375 4H9.625V10.1875H8.375V4Z" fill="#5B616E"/>
-                            <path d="M9 11.875C8.81458 11.875 8.63332 11.9245 8.47915 12.0172C8.32498 12.1099 8.20482 12.2417 8.13386 12.3959C8.06291 12.55 8.04434 12.7197 8.08051 12.8834C8.11669 13.047 8.20598 13.1974 8.33709 13.3154C8.4682 13.4334 8.63525 13.5137 8.8171 13.5463C8.99896 13.5788 9.18746 13.5621 9.35877 13.4983C9.53007 13.4344 9.67649 13.3263 9.7795 13.1875C9.88252 13.0488 9.9375 12.8856 9.9375 12.7187C9.9375 12.495 9.83873 12.2804 9.66291 12.1221C9.4871 11.9639 9.24864 11.875 9 11.875Z" fill="#5B616E"/>
-                            </svg>
-                            <span style="color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;">Awaiting uploads</span></td>                        
-                      </tr>
-                      <tr>
-                        <th scope="row" style="padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;">lorem</th>
-                        <td style="padding-top:25px;"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0.625C7.26942 0.625 5.57769 1.08686 4.13876 1.95218C2.69983 2.81749 1.57832 4.0474 0.916058 5.48637C0.253791 6.92534 0.080512 8.50874 0.418133 10.0363C0.755753 11.5639 1.58911 12.9671 2.81282 14.0685C4.03653 15.1698 5.59563 15.9198 7.29296 16.2237C8.9903 16.5275 10.7496 16.3716 12.3485 15.7756C13.9473 15.1795 15.3139 14.1702 16.2754 12.8751C17.2368 11.5801 17.75 10.0575 17.75 8.5C17.75 6.41142 16.8281 4.40838 15.1872 2.93153C13.5462 1.45469 11.3206 0.625 9 0.625ZM9 15.25C7.51664 15.25 6.0666 14.8541 4.83323 14.1124C3.59986 13.3707 2.63856 12.3165 2.07091 11.0831C1.50325 9.84971 1.35473 8.49251 1.64411 7.18314C1.9335 5.87377 2.64781 4.67103 3.6967 3.72703C4.7456 2.78302 6.08197 2.14015 7.53683 1.8797C8.99168 1.61925 10.4997 1.75292 11.8701 2.26381C13.2406 2.7747 14.4119 3.63987 15.236 4.7499C16.0601 5.85993 16.5 7.16498 16.5 8.5C16.5 10.2902 15.7098 12.0071 14.3033 13.273C12.8968 14.5388 10.9891 15.25 9 15.25Z" fill="#5B616E"/>
-                            <path d="M8.375 4H9.625V10.1875H8.375V4Z" fill="#5B616E"/>
-                            <path d="M9 11.875C8.81458 11.875 8.63332 11.9245 8.47915 12.0172C8.32498 12.1099 8.20482 12.2417 8.13386 12.3959C8.06291 12.55 8.04434 12.7197 8.08051 12.8834C8.11669 13.047 8.20598 13.1974 8.33709 13.3154C8.4682 13.4334 8.63525 13.5137 8.8171 13.5463C8.99896 13.5788 9.18746 13.5621 9.35877 13.4983C9.53007 13.4344 9.67649 13.3263 9.7795 13.1875C9.88252 13.0488 9.9375 12.8856 9.9375 12.7187C9.9375 12.495 9.83873 12.2804 9.66291 12.1221C9.4871 11.9639 9.24864 11.875 9 11.875Z" fill="#5B616E"/>
-                            </svg>
-                            <span style="color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;">Awaiting uploads</span></td>                        
-                      </tr>
-                      <tr>
-                        <th scope="row" style="padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;">lorem</th>
-                        <td style="padding-top:25px;"><svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0.625C7.26942 0.625 5.57769 1.08686 4.13876 1.95218C2.69983 2.81749 1.57832 4.0474 0.916058 5.48637C0.253791 6.92534 0.080512 8.50874 0.418133 10.0363C0.755753 11.5639 1.58911 12.9671 2.81282 14.0685C4.03653 15.1698 5.59563 15.9198 7.29296 16.2237C8.9903 16.5275 10.7496 16.3716 12.3485 15.7756C13.9473 15.1795 15.3139 14.1702 16.2754 12.8751C17.2368 11.5801 17.75 10.0575 17.75 8.5C17.75 6.41142 16.8281 4.40838 15.1872 2.93153C13.5462 1.45469 11.3206 0.625 9 0.625ZM9 15.25C7.51664 15.25 6.0666 14.8541 4.83323 14.1124C3.59986 13.3707 2.63856 12.3165 2.07091 11.0831C1.50325 9.84971 1.35473 8.49251 1.64411 7.18314C1.9335 5.87377 2.64781 4.67103 3.6967 3.72703C4.7456 2.78302 6.08197 2.14015 7.53683 1.8797C8.99168 1.61925 10.4997 1.75292 11.8701 2.26381C13.2406 2.7747 14.4119 3.63987 15.236 4.7499C16.0601 5.85993 16.5 7.16498 16.5 8.5C16.5 10.2902 15.7098 12.0071 14.3033 13.273C12.8968 14.5388 10.9891 15.25 9 15.25Z" fill="#5B616E"/>
-                            <path d="M8.375 4H9.625V10.1875H8.375V4Z" fill="#5B616E"/>
-                            <path d="M9 11.875C8.81458 11.875 8.63332 11.9245 8.47915 12.0172C8.32498 12.1099 8.20482 12.2417 8.13386 12.3959C8.06291 12.55 8.04434 12.7197 8.08051 12.8834C8.11669 13.047 8.20598 13.1974 8.33709 13.3154C8.4682 13.4334 8.63525 13.5137 8.8171 13.5463C8.99896 13.5788 9.18746 13.5621 9.35877 13.4983C9.53007 13.4344 9.67649 13.3263 9.7795 13.1875C9.88252 13.0488 9.9375 12.8856 9.9375 12.7187C9.9375 12.495 9.83873 12.2804 9.66291 12.1221C9.4871 11.9639 9.24864 11.875 9 11.875Z" fill="#5B616E"/>
-                            </svg>
-                            <span style="color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;">Awaiting uploads</span></td>                        
-                      </tr>
-                    </tbody>
-                  </table>
-            </div> -->
-
-      <!-- <footer class="footer text-center text-muted">
-                All Rights Reserved by t</a>.
-            </footer> -->
 
     </div>
 
   </div>
   <script>
     function openNav() {
-      document.getElementById("sidebar").style.width = "260px";
-      document.getElementById("main").style.marginLeft = "260px";
+
+      if (screen.width >= 800) {
+        document.getElementById("sidebar").style.width = "260px";
+        document.getElementById("main").style.marginLeft = "260px";
+      } else {
+        document.getElementById("sidebar").style.width = "100%";
+        document.getElementById("main").style.marginLeft = "100%";
+      }
     }
 
+    /* Close Nav */
     function closeNav() {
-      document.getElementById("sidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
 
+      if (screen.width >= 768) {
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";;
+      } else {
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";;
+      }
     }
   </script>
   <script>

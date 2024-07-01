@@ -3,8 +3,10 @@
 session_start(); 
 
 include("../db/config.php");
+// include("../db/conf.php");
 
 include("../utils/country_fee.php");
+include("../utils/store.php");
 include("../functions/index.php");
 include("../models/User.php");
 include("../models/Service.php");
@@ -20,20 +22,11 @@ include("../models/Upload.php");
 include("../models/Review.php");
 include("../models/Admin.php");
 include("../models/ResetUserPassword.php");
+include("../inc/lang.php");
 
-include("../payment/Paystack.php");
+include("../payments/Paystack.php");
 
 if(!isset($_SESSION["LOGGED_USER"])) header("Location: ../signin.php");
-
-if(isset($_SESSION["REG_MODE"])) {
-    if($_SESSION["REG_MODE"] == "TWP") {
-        header("Location: ./NTWPDASHFORM.php");
-    }
-
-    if($_SESSION["REG_MODE"] == "BVA") {
-        header("Location: ./NBVADASHFORM.php");
-    }
-}
 ?>
 
 
@@ -43,4 +36,5 @@ if(isset($_SESSION["REG_MODE"])) {
     $USER_ID = $LOGGED_USER['user_id'];
 
     $USER = $users->get_user($USER_ID);
+    $USER_PROFILE_PIC = getProfilePic($connect, $USER_ID)["file"];
 ?>

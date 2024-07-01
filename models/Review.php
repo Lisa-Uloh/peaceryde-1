@@ -22,15 +22,17 @@ class Review {
     {
         extract($review);
 
-        $query = "INSERT INTO `review`(`review_id`, `user_id`, `rating`, `review`, `is_featured`) 
-            VALUES (:review_id, :user_id, :rating, :review, :is_featured)";
+        $query = "INSERT INTO `review`(`review_id`, `user_id`, `rating`, `review`, `is_featured`, `type`, `file`) 
+            VALUES (:review_id, :user_id, :rating, :review, :is_featured, :type, :file)";
         $result = $this->connection->prepare($query);
         $result->execute([
             'review_id' => $this->generate_id(),
             'user_id' => $userId,
             'rating' => $rating,
             'review' => $review,
-            'is_featured' => 0
+            'is_featured' => 0,
+            'type' => $type,
+            'file' => $file
         ]);
 
         return $result;
@@ -65,19 +67,28 @@ class Review {
 
     public function getAllReviews()
     {
-        $query = "SELECT * FROM `review`";
+        $query = "SELECT * FROM `review` ORDER BY `date` DESC";
         $result = $this->connection->prepare($query);
         $result->execute();
 
         return $result->fetchAll();
     }
 
-
-    public function getAllFeaturedReviews () 
+    public function getOneTypeReview($type)
     {
-        $query = "SELECT * FROM `review` WHERE `is_featured` != ? ORDER BY `date` DESC LIMIT 3";
+        $query = "SELECT * FROM `review` WHERE `type` = ?";
         $result = $this->connection->prepare($query);
-        $result->execute([true]);
+        $result->execute([$type]);
+
+        return $result->fetchAll();
+    }
+
+
+    public function getAllFeaturedReviews ($type) 
+    {
+        $query = "SELECT * FROM `review` WHERE `is_featured` = ? AND type = ? ORDER BY `date` DESC LIMIT 3";
+        $result = $this->connection->prepare($query);
+        $result->execute([true, $type]);
 
         return $result->fetchAll();
     }

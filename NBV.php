@@ -6,7 +6,9 @@
 <!--  This source code is exported from pxCode, you can get more document from https://www.pxcode.io  -->
 
 <head>
+<?php include("./google_analytics.php"); ?>
     <meta charset="utf-8" />
+    <title>PeaceRyde Africa LLC - NBV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
@@ -30,6 +32,9 @@
     <script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/px2code/posize/build/v1.00.3.js"></script>
+
+    <!-- google jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body style="overflow-x: hidden;">
@@ -54,12 +59,12 @@
                           tellus aliquet sollicitudin vel at pellentesque. Consequat gravida vitae molestie proin
                           habitasse velit egestas. Imperdiet id arcu urna sagittis, porta tellus. Auctor nec nisi,
                           viverra duis consequat convallis. Aliquam erat ultrices nunc sapien aliquet commodo. Sed
-                          eleifend feugiat po  <a href="#" class="" style="color: #000080;padding-left: 6px;
+                          eleifend feugiat po  <a href="" class="" style="color: #000080;padding-left: 6px;
                           width: 63px;
                           height: 27px;
                           font-family: 'Ubuntu';font-style: normal;font-weight: 300;font-size: 14px;text-decoration-line: underline;
                       ">See More.....</a></p>
-                       <a href="NBVForm.php" class="btn buttons3">Apply</a>
+                       <a href="./NBVForm" class="btn buttons3">Apply</a>
                           
                   </div>
               </div>
@@ -179,13 +184,13 @@
                           COMPANY
                         </h3>
                         <ul>
-                          <li class="new-section8__text-body5 layout fs-13"><a class="fs-13" href="about.php"
+                          <li class="new-section8__text-body5 layout fs-13"><a class="fs-13" href="./about"
                               style=" text-decoration: none;">About us</a>
                           </li>
-                          <li class="new-section8__text-body5 layout fs-13"><a class="fs-13" href="pp.php"
+                          <li class="new-section8__text-body5 layout fs-13"><a class="fs-13" href="./pp"
                               style=" text-decoration: none;">Privacy &Cookie Policy</a>
                           </li>
-                          <li class="new-section8__text-body5 layout fs-13" 0><a href="t&c.php"
+                          <li class="new-section8__text-body5 layout fs-13" 0><a href="./t&c"
                               class="fs-13"style=" text-decoration: none;">Terms And
                               Condition</a></li>
                           <li class="new-section8__text-body5 layout fs-13">Refund
@@ -219,7 +224,7 @@
           <div class="lastfooter">
             <div class="row lastfooterrow">
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <p><a class="locaddress" href="Index.php"> &copy; &nbsp;
+                <p><a class="locaddress" href="/"> &copy; &nbsp;
                     2022 PeaceRydeAfrica LLC</a></p>
               </div>
               <div class="col-md-5 col-sm-12 col-xs-12">
@@ -227,11 +232,11 @@
                   under the File Number 654846</p>
               </div>
               <div class="col-md-2">
-                <p style="margin-top: -2px;"><a class="privacy" href="pp.php">Privacy and Cookie
+                <p style="margin-top: -2px;"><a class="privacy" href="./pp">Privacy and Cookie
                     Policy</a></p>
               </div>
               <div class="col-md-2">
-                <p><a class="tc" href="t&c.php">Terms & Conditions</a></p>
+                <p><a class="tc" href="./t&c">Terms & Conditions</a></p>
               </div>
             </div>
           </div>
@@ -240,6 +245,7 @@
             <!-- ======= End section8 ======= -->
 
     </main>
+    <?php include("./inc/langChange.php") ?>
     <script type="text/javascript">
         AOS.init();
     </script>

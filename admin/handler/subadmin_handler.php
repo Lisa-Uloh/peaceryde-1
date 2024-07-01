@@ -1,10 +1,7 @@
 <?php 
 
-require("../addons/crsf_auth.php");
-require_once("../../db/config.php");
-require_once("../../functions/index.php");
-require_once("../../models/Admin.php");
-require("../../setup.php");
+require_once("./models.php");
+
 
 $admin = new Admin($connect);
 
@@ -14,18 +11,26 @@ if(isset($_POST['addAdmin'])){
     $country = filter_var_array($_POST['country'], FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $services = filter_field($_POST['service']);
+    $services = filter_var_array($_POST['service'], FILTER_SANITIZE_STRING);
     $admin_id = $admin->generate_id();
+    $isChatOnly = $_POST['chat'];
+
+    if($admin->checkEmail($email)) {
+        setAdminAlert("Email already exists", 'success');
+        header('Location: ../subadmins.php');
+        exit();
+    }
 
     $user = [
         'name' => $name,
-        'countries' => $country,
-        'services' => $services,
+        'countries' => $country ?? "",
+        'services' => $services ?? "",
         'password' => $hashed_password,
         'admin_id' => $admin_id,
         'status' => "active",
         'type' => "LOW",
-        'email' => $email
+        'email' => $email,
+        'chat' => $isChatOnly
     ];
 
     $admin_result = $admin->addAdmin($user);
@@ -34,20 +39,14 @@ if(isset($_POST['addAdmin'])){
         $subadmin = $admin->addSubAdmin($user);
 
         if($subadmin) {
-            $alert = [
-                'alert_type' => 'success',
-                'alert_message' => "Admin Created Successfully"
-            ];
+            setAdminAlert("Admin Created Successfully", 'success');
 
             $subject = "REGISTRATION";
             $message = "<h2>Hi $name,</h2>";
-            $message .= "<p>You've been successfully added as a sub admin at $APP_NAME</p>";
+            $message .= "<p>You've been successfully added as a sub admin at Peacerydeafrica </p>";
             $message .= "<p>Your default password is $password </p>";
     
-            sendMail($subject, $message, $EMAIL_ADDRESS, $email);
-
-            session_start();
-            $_SESSION['ADMIN_ALERT'] = json_encode($alert);
+            sendMail($subject, $message, "noreply@peacerydeafrica.com", $email);
             header('Location: ../subadmins.php');
         }
     }
@@ -58,13 +57,13 @@ if(isset($_POST['editAdmin'])){
     $name = filter_field($_POST['name']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $country = filter_var_array($_POST['country'], FILTER_SANITIZE_STRING);
-    $services = filter_field($_POST['service']);
+    $services = filter_var_array($_POST['service']);
     $id = $_POST['id'];
 
     $user = [
         'name' => $name,
         'countries' => $country,
-        'services' => $services,
+        'services' => json_encode($services),
         'status' => "active",
         'type' => "LOW",
         'email' => $email
@@ -76,13 +75,7 @@ if(isset($_POST['editAdmin'])){
         $subadmin = $admin->editSubAdmin($user, $id);
 
         if($subadmin) {
-            $alert = [
-                'alert_type' => 'success',
-                'alert_message' => "Admin Updated Successfully"
-            ];
-
-            session_start();
-            $_SESSION['ADMIN_ALERT'] = json_encode($alert);
+            setAdminAlert("Admin Updated Successfully", 'success');
             header('Location: ../subadmins.php');
         }
     }
@@ -94,25 +87,11 @@ if(isset($_POST['deleteAdmin'])){
     $result = $admin->deleteAdmin($admin_id);
 
     if(!$result){
-        $alert = [
-            'alert_message' => "Something went wrong. Please try again",
-            'alert_type' => 'error'
-        ];
-
-        session_start();
-        $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
+        setAdminAlert("Something went wrong. Please try again", 'error');
         header('Location: ../subadmins.php');
     }
     
-    $alert = [
-        'alert_message' => "Admin deleted successfully",
-        'alert_type' => 'success'
-    ];
-
-    session_start();
-    $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
+    setAdminAlert("Admin deleted successfully", 'success');
     header('Location: ../subadmins.php');
 }
 
@@ -121,26 +100,12 @@ if(isset($_POST['suspendAdmin'])){
     $result = $admin->suspendAdmin($admin_id);
 
     if(!$result){
-        $alert = [
-            'alert_message' => "Something went wrong. Please try again",
-            'alert_type' => 'error'
-        ];
-
-        session_start();
-        $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
+        setAdminAlert("Something went wrong. Please try again", 'error');
         header('Location: ../subadmins.php');
         exit();
     }
     
-    $alert = [
-        'alert_message' => "Admin Suspended",
-        'alert_type' => 'success'
-    ];
-
-    session_start();
-    $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
+    setAdminAlert("Admin Suspended", 'success');
     header('Location: ../subadmins.php');
 }
 
@@ -149,25 +114,32 @@ if(isset($_POST['unSuspendAdmin'])){
     $result = $admin->unSuspendAdmin($admin_id);
 
     if(!$result){
-        $alert = [
-            'alert_message' => "Something went wrong. Please try again",
-            'alert_type' => 'error'
-        ];
-
-        session_start();
-        $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
+        setAdminAlert("Something went wrong. Please try again", 'error');
         header('Location: ../subadmins.php');
         exit();
     }
     
-    $alert = [
-        'alert_message' => "Admin Unsuspended",
-        'alert_type' => 'success'
-    ];
-
-    session_start();
-    $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
+    setAdminAlert("Admin Unsuspended", 'success');
     header('Location: ../subadmins.php');
+}
+
+if(isset($_POST["remove"])) {
+    $admin = $_POST["admin"];
+    $user = $_POST["user"];
+
+    $query = "DELETE FROM `sub_admin_users` WHERE `sub_admin` = :admin AND `user` = :user";
+    $result = $connect->prepare($query);
+    $result->execute([
+        'admin' => $admin,
+        'user' => $user
+    ]);
+
+    if($result) {
+        setAdminAlert("User Removed Successfully", "success");
+        header("Location: ../subadmin-details.php?subadmin=$admin");
+    }
+    else {
+        setAdminAlert("Something went wrong", "error");
+        header("Location: ../subadmin-details.php?subadmin=$admin");
+    }
 }

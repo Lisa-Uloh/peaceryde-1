@@ -4,7 +4,9 @@
 <!--  This source code is exported from pxCode, you can get more document from https://www.pxcode.io  -->
 
 <head>
+<?php include("./google_analytics.php"); ?>
     <meta charset="utf-8" />
+    <title>PeaceRyde Africa LLC - VSB Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
@@ -28,6 +30,8 @@
     <script type="text/javascript" src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/px2code/posize/build/v1.00.3.js"></script>
 
+    <!-- google jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 
@@ -79,6 +83,7 @@
     <script type="text/javascript">
         AOS.init();
     </script>
+    <?php include("./inc/langChange.php") ?>
 </body>
 
 </html>

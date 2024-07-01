@@ -1,16 +1,16 @@
 <?php $active = $title = "Dashboard"; ?>
-
-<?php require_once('../db/config.php'); ?>
-<?php require_once('../models/User.php'); ?>
-<?php require_once('../models/Admin.php'); ?>
-<?php require_once('../models/Review.php'); ?>
-<?php require_once('../functions/index.php'); ?>
+<?php require_once("./addons/models.php"); ?>
 
 <?php 
 
 	$users = new User($connect);
 	$subadmins = new Admin($connect);
 	$reviews = new Review($connect);
+
+	assignAutomatically($connect);
+	if($LOGGED_ADMIN['type'] != "HIGH") {
+		$SUBADMIN_USERS = messageableUsers($connect, $LOGGED_ADMIN['admin_id']);
+	}
 
 ?>
 
@@ -61,55 +61,62 @@
 								</g>
 							</svg></div>
 						<div class="relative">
-							<h1 class="text-2xl md:text-3xl text-gray-800 font-bold mb-1">Good <?= getGreeting() ?>, <?= $LOGGED_USER['name'] ?> 👋</h1>
+							<h1 class="text-2xl md:text-3xl text-gray-800 font-bold mb-1">Good <?= getGreeting() ?>, <?= $LOGGED_ADMIN['name'] ?> 👋</h1>
 							<!-- <p>Here is what’s happening with your projects today:</p> -->
 						</div>
 					</div>
 					<div class="grid grid-cols-12 gap-6">
 						<!-- All Users -->
+						
 						<div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-gray-200">
-							<a href="./users.php" class="px-5 pt-5 block">
+							<a href="./users" class="px-5 pt-5 block">
 								<header class="flex justify-between items-start mb-2">
 									<img src="images/icon-01.svg" width="32" height="32" alt="Icon 01" />
 									<h2 class="text-lg font-semibold text-gray-800 mb-2">No of users</h2>
 								</header>
 								<div class="flex items-start my-8">
 									<div class="text-3xl font-bold text-gray-800 mr-2">
-										<?= count($users->get_all_users()); ?>
+										<?php if($LOGGED_ADMIN['type'] == "HIGH"): ?>
+											<?= count($users->get_all_users()); ?>
+										<?php else: ?>
+											<?= count($SUBADMIN_USERS); ?>
+										<?php endif; ?>
 									</div>
 								</div>
 							</a>
 						</div>
 
-						<!-- All SubAdmins -->
-						<div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-gray-200">
-							<a href="./subadmins.php" class="px-5 pt-5 block">
-								<header class="flex justify-between items-start mb-2">
-									<img src="images/icon-02.svg" width="32" height="32" alt="Icon 02" />
-									<h2 class="text-lg font-semibold text-gray-800 mb-2">No of sub-admins</h2>
-								</header>
-								<div class="flex items-start my-8">
-									<div class="text-3xl font-bold text-gray-800 mr-2">
-										<?= count($subadmins->getAllSubAdmins()) ?>
+						<?php if($LOGGED_ADMIN['type'] == "HIGH"): ?>
+							<!-- All SubAdmins -->
+							<div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-gray-200">
+								<a href="./subadmins" class="px-5 pt-5 block">
+									<header class="flex justify-between items-start mb-2">
+										<img src="images/icon-02.svg" width="32" height="32" alt="Icon 02" />
+										<h2 class="text-lg font-semibold text-gray-800 mb-2">No of sub-admins</h2>
+									</header>
+									<div class="flex items-start my-8">
+										<div class="text-3xl font-bold text-gray-800 mr-2">
+											<?= count($subadmins->getAllSubAdmins()) ?>
+										</div>
 									</div>
-								</div>
-							</a>
-						</div>
+								</a>
+							</div>
 
-						<!-- All  -->
-						<div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-gray-200">
-							<a href="./reviews.php" class="px-5 pt-5 block">
-								<header class="flex justify-between items-start mb-2">
-									<img src="images/icon-03.svg" width="32" height="32" alt="Icon 03" />
-									<h2 class="text-lg font-semibold text-gray-800 mb-2">No of reviews</h2>
-								</header>
-								<div class="flex items-start my-8">
-									<div class="text-3xl font-bold text-gray-800 mr-2">
-										<?= count($reviews->getAllReviews()); ?>
+							<!-- All  -->
+							<div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-gray-200">
+								<a href="./reviews" class="px-5 pt-5 block">
+									<header class="flex justify-between items-start mb-2">
+										<img src="images/icon-03.svg" width="32" height="32" alt="Icon 03" />
+										<h2 class="text-lg font-semibold text-gray-800 mb-2">No of reviews</h2>
+									</header>
+									<div class="flex items-start my-8">
+										<div class="text-3xl font-bold text-gray-800 mr-2">
+											<?= count($reviews->getAllReviews()); ?>
+										</div>
 									</div>
-								</div>
-							</a>
-						</div>
+								</a>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</main>

@@ -3,8 +3,12 @@
 session_start();
 
 include("../../db/config.php");
+// include("../../db/conf.php");
 include("../../models/Upload.php");
 include("../../models/ResetUserPassword.php");
+include("../../utils/store.php");
+include("../../functions/index.php");
+
 
 $uploads = new Upload($connect);
 $resetPassword = new ResetUserPassword($connect);
@@ -16,96 +20,183 @@ $USER_ID = $LOGGED_USER['user_id'];
 if(isset($_POST['update'])) {
     $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
     $file = $_FILES['image'];
+    extract($POST);
 
     if(!$file['error']) {
-        $upload_res = $uploads->uploadFile($file, "./pic/");
-    
-        extract($POST);
-    
-        if($upload_res['status'] == 'success') {
-            $upload_res = $uploads->uploadToDB($USER_ID, $upload_res['file_name'], 'PROFILE');
-            if($upload_res['status'] == 'success') {
-                $query = "UPDATE `users` SET `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email' WHERE `user_id` = '$USER_ID'";
-                $result = $connect->prepare($query);
-                $result->execute();
-    
-                if($result) {
-                    $alert = [
-                        'message' => "User Updated Successfully",
-                        'status' => 'success'
-                    ];
-                    $_SESSION['ALERT'] = json_encode($alert);
-    
-                    header("Location: ../account.php");               
-                }
-                else {
-                    $alert = [
-                        'message' => "Something went wrong, please try again.",
-                        'status' => 'error'
-                    ];
-                    $_SESSION['ALERT'] = json_encode($alert);
-    
-                    header("Location: ../account.php");
-                }
-            }
-            else {
-                $alert = [
-                    'message' => "File upload failed.",
-                    'status' => 'error'
-                ];
-                $_SESSION['ALERT'] = json_encode($alert);
-    
-                header("Location: ../account.php");
-            }
-        }
-        else {
-            $alert = [
-                'message' => "File upload failed.",
-                'status' => 'error'
-            ];
-            $_SESSION['ALERT'] = json_encode($alert);
-    
-            header("Location: ../account.php");
-        }
-    }
-    else {
-        extract($POST);
-        $hashed = md5($password);
+        $uploaded = true;
+        $fileNameArray = explode(".", $file['name']);
+        $name = $fileNameArray[0];
+        $extension = end($fileNameArray);
+        $time = time();
+        $filename = "$name-$time.$extension";
 
-        $result = $resetPassword->changePassword($USER_ID, $hashed);
+        $tepFile = $file['tmp_name'];
+        $destination = "../pic/$filename";
+    
+        $uploaded = move_uploaded_file($tepFile, $destination);
+    
+        if(!$uploaded) {
+            setUserAlert("Error uploading file", "error");
+            header("Location: ./upload");
+            exit();
+        }
 
-        if($result){
-            $query = "UPDATE `users` SET `firstname` = '$firstname', `lastname` = '$lastname', `email` = '$email' WHERE `user_id` = '$USER_ID'";
+        try {
+            // Check if profile exits 
+            $query = "SELECT * FROM `uploads` WHERE `user_id` = :user AND `service_id` = :service";
             $result = $connect->prepare($query);
-            $result->execute();
+            $result->execute([
+                "user" => $USER_ID,
+                "service" => "PROFILE"
+            ]);
+
+            if($result->rowCount()) {
+                $prevData = $result->fetch();
+                // Delete file
+                $fileToDelete = $prevData['file'];
+                if(unlink("../pic/$fileToDelete")){
+                    // Update Profile Info
+                    $query = "UPDATE `uploads` SET `file` = :filename WHERE `id` = :id";
+                    $result = $connect->prepare($query);
+                    $result->execute([
+                        'filename' => $filename,
+                        'id' => $prevData['id'],
+                    ]);
+
+                    if($result) {
+                        // Update user's info
+                        $query = "UPDATE `users` SET `title` = :title, `firstname` = :firstname, `middle_name`= :middle_name, `lastname` = :lastname, `email` = :email, `phone`= :phone WHERE `user_id` = :id";
+                        $result = $connect->prepare($query);
+                        $result->execute([
+                            "title" => $title,
+                            "firstname" => $firstname,
+                            "middle_name" => $middle_name,
+                            "lastname" => $lastname,
+                            "email" => $email,
+                            "phone" => $phone,
+                            "id" => $USER_ID
+                        ]);
+        
+                        if($result) {
+                            // Update users login table
+                            $getPrevPassword = getPassword($connect, $USER_ID)['password'];
+                            $hashedPassword = $password != "" ? md5($password) : $getPrevPassword;
+                            $query = "UPDATE `user_login` SET `email` = :email, `password` = :password WHERE `user_id` = :user";
+                            $result = $connect->prepare($query);
+                            $result->execute([
+                                "email" => $email,
+                                "password" => $hashedPassword,
+                                "user" => $USER_ID
+                            ]);
+        
+                            if($result) {
+                                setUserAlert("Profile updated successfully", 'success');
+                                header("Location: ../account");
+                            }
+                            else {
+                                setUserAlert("Profile failed to update", "error");
+                                header("Location: ../upload");
+                            }
+        
+                        }
+                    }
+    
+                }
+
+                exit();
+            }
+            // Update Profile Info
+            $query = "INSERT INTO `uploads`(`user_id`, `name`, `file`, `service_id`, `status`) VALUES (:userid, :name, :filename, :service, :status)";
+            $result = $connect->prepare($query);
+            $result->execute([
+                'userid' => $USER_ID,
+                'name' => "PROFILE",
+                'filename' => $filename,
+                'service' => "PROFILE",
+                'status' => "Awaiting approval"
+            ]);
+    
+            if($result) {
+                // Update user's info
+                $query = "UPDATE `users` SET `title` = :title, `firstname` = :firstname, `middle_name`= :middle_name, `lastname` = :lastname, `email` = :email, `phone`= :phone WHERE `user_id` = :id";
+                $result = $connect->prepare($query);
+                $result->execute([
+                    "title" => $title,
+                    "firstname" => $firstname,
+                    "middle_name" => $middle_name,
+                    "lastname" => $lastname,
+                    "email" => $email,
+                    "phone" => $phone,
+                    "id" => $USER_ID
+                ]);
+
+                if($result) {
+                    // Update users login table
+                    $getPrevPassword = getPassword($connect, $USER_ID)['password'];
+                    $hashedPassword = $password != "" ? md5($password) : $getPrevPassword;
+                    $query = "UPDATE `user_login` SET `email` = :email, `password` = :password WHERE `user_id` = :user";
+                    $result = $connect->prepare($query);
+                    $result->execute([
+                        "email" => $email,
+                        "password" => $hashedPassword,
+                        "user" => $USER_ID
+                    ]);
+
+                    if($result) {
+                        setUserAlert("Profile updated successfully", 'success');
+                        header("Location: ../account");
+                    }
+                    else {
+                        setUserAlert("Profile failed to update", "error");
+                        header("Location: ../upload");
+                    }
+
+                }
+            }
+        } catch (PDOException $e) {
+            setUserAlert("Profile failed to update", "error");
+            header("Location: ../upload");
+        }
+        exit();
+    }
+
+    try {
+        $query = "UPDATE `users` SET `title` = :title, `firstname` = :firstname, `middle_name`= :middle_name, `lastname` = :lastname, `email` = :email, `phone`= :phone WHERE `user_id` = :id";
+        $result = $connect->prepare($query);
+        $result->execute([
+            "title" => $title,
+            "firstname" => $firstname,
+            "middle_name" => $middlename,
+            "lastname" => $lastname,
+            "email" => $email,
+            "phone" => $phone,
+            "id" => $USER_ID
+        ]);
+
+        if($result) {
+            // Update users login table
+            $getPrevPassword = getPassword($connect, $USER_ID)['password'];
+            $hashedPassword = $password != "" ? md5($password) : $getPrevPassword;
+            $query = "UPDATE `user_login` SET `email` = :email, `password` = :password WHERE `user_id` = :user";
+            $result = $connect->prepare($query);
+            $result->execute([
+                "email" => $email,
+                "password" => $hashedPassword,
+                "user" => $USER_ID
+            ]);
 
             if($result) {
-                $alert = [
-                    'message' => "User Updated Successfully",
-                    'status' => 'success'
-                ];
-                $_SESSION['ALERT'] = json_encode($alert);
-
-                header("Location: ../account.php");               
+                setUserAlert("Profile updated successfully", 'success');
+                header("Location: ../account");
             }
             else {
-                $alert = [
-                    'message' => "Something went wrong, please try again.",
-                    'status' => 'error'
-                ];
-                $_SESSION['ALERT'] = json_encode($alert);
-
-                header("Location: ../account.php");
+                setUserAlert("Profile failed to update", "error");
+                header("Location: ../upload");
             }
-        }
-        else {
-            $alert = [
-                'message' => "Something went wrong, please try again.",
-                'status' => 'error'
-            ];
-            $_SESSION['ALERT'] = json_encode($alert);
 
-            header("Location: ../account.php");
         }
+    } catch (PDOException $e) {
+        setUserAlert("Profile failed to update", "error");
+        header("Location: ../upload");
     }
 }

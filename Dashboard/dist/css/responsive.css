@@ -1,10 +1,149 @@
+
+.size
+{
+  color:#5B616E;font-family: Segoe UI;padding-left:18px;font-size: 16px;font-style: normal;font-weight: 500;
+}
+.lorem
+{
+  padding-top:25px;padding-left:36px;color:#5B616E;font-family: Segoe UI;font-size: 16px;font-style: normal;font-weight: 400;
+}
+.trackh3
+{
+
+    font-weight: 500;
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-style: normal;
+  color:#0F1377;
+  padding-top:20px;padding-left:21px
+}
+.documentext
+{
+  font-weight: 500;
+}
+.logoutmobile
+{
+  display: none;
+}
+.logoutlaptop
+{
+  display: block;
+}
 @media(min-width:900px) and (max-width: 2560px) {
+/**/
+.title
+{
+  padding: 5%;
+  /* padding-left: 204px; */
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  color: #0A0E69;
+  text-align: left;
+}
+.fill
+{
+  padding: 0px 5% 20px;
+  /* padding-left: 204px; */
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  color: #0A0E69;
+  text-align: left;
+}
+.personal
+{
+
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: #0A0E69;
+    text-align: center;
+}
+.formml
+{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+}
+.fmselect
+{
+  color: #5A5A5A;border: 1px solid #555555; width:100%; height: 44px; margin-top:7px
+}
+.divbtn
+{
+  margin-top: 50px; margin-bottom: 204px;
+}
+.btnproceed
+{
+  background-color: #A0BD1C; width: 157px; height: 44px;font-family: Ubuntu;color:#ffffff;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nameappears
+{
+  padding-top:19px; color: #C8730F;font-family: Ubuntu;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;     
+}
+.firstname
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.middlename
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.lastname
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.dob
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.email
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.passno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.code
+{
+  color: #5A5A5A;border: 1px solid #555555; width:100%; height: 44px;
+}
+.mt-138
+{
+  margin-top:138px
+}
+.mobileno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.mobileno2
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+ 
+}
+.please
+{
+  height: 16px;padding-top: 27px;font-family: Ubuntu;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nationality
+{
+  border: 1px solid #555555; width:100%; height: 44px; margin-top:27px;color: #5A5A5A;
+}
   /*UPLOAD*/ 
   .drop-zone {
-    width: 527px;
+    width: 770px;
     height: 360px;
-    margin-top: 82px;
-    margin-left: 23px;
+    margin-top: 30px;
+    margin-left: 51px;
     display: flex;
     font-family: Rubik;
     font-weight: 500;
@@ -14,7 +153,23 @@
     background-color: #ffffff;
     border: 1px dashed #0A0E69;
     border-radius: 10px;
-}                            
+}    
+.upload-input {
+  width:307px;
+  height:43px;
+  /* border:1px solid #555555; */
+  font-size: 13px;
+  margin-top: 50px;
+  margin-left: 51px;
+}   
+.add
+{
+  font-family: Ubuntu;padding-left:255px;color:#ffffff;font-size: 13px;font-style: normal;font-weight: 400;
+}  
+.debittext
+{
+  font-family: Ubuntu;padding-left:32px;color:#ffffff;font-size: 18px;font-style: normal;font-weight: 400;
+}                   
 .left-sidebar a:hover {
   color: #f1f1f1;
 }
@@ -31,21 +186,7 @@
   transition: margin-left .5s;
   padding: 16px;
 }
-.drop-zone {
-  width: 827px;
-  height: 360px;
-  margin-top: 82px;
-  margin-left:23px;
-  display: flex;
-  font-family: Rubik;
-  font-weight: 500;
-  font-size: 20px;
-  cursor: pointer;
-  color: #cccccc;
-  background-color: #ffffff;
-  border: 1px dashed #0A0E69;
-  border-radius: 10px;
-}
+
 
 .drop-zone--over {
   border-style: solid;
@@ -85,7 +226,7 @@
   font-family: Rubik;
   font-size: 30px;
   font-style: normal;
-  color:#000000;
+  color:#0F1377;
   padding-top:0px;padding-left:51px;
 }
 .uploadtext
@@ -95,7 +236,7 @@
   font-style: normal;
   font-weight: 400;
   padding-top:10px;
-  padding-left: 128px;color:#0A0E69;
+  padding-left: 51px;color:#0A0E69;
 }
 .pleaseupload
 {
@@ -104,12 +245,12 @@
   font-style: normal;
   font-weight: 400;
   padding-top:2px;
-  padding-left: 128px;color:#000000;
+  padding-left: 51px;color:#000000;
                
 }
 .drop-zonep
 {
-  margin-left: 370px; margin-top:94px
+  margin-left: 340px; margin-top:94px
 }
 .dropfilep
 {
@@ -155,7 +296,7 @@
   /*Track progress*/
   .progresscard
   {
-    width:925px;height:440px;background-color: #f7f7f7; margin-top: 68px; margin-left: 17px;
+    width:810px;height:440px;background-color: #f7f7f7; margin-top: 68px; margin-left: 17px;
     overflow-x:auto;
   }
   .progressservice
@@ -213,13 +354,13 @@
   line-height: 1.5rem;
   }
   .containerques {
-  background-color: white;
-  color: #0A0E69;
-  border-radius: 10px;
-  width: 622px;
-  margin: 20px 0;
-  
-  box-shadow: 0 5px 10px 0 rgb(0,0,0,0.25);
+    background-color: white;
+    color: #0A0E69;
+    border: 1px solid #0A0E69;
+    border-radius: 20px;
+    width: 622px;
+    margin: 20px 82px;
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
   }
   .servicesh3
   {
@@ -286,10 +427,11 @@
   .bankh3
   {
     font-family: Ubuntu;
+    font-weight: 500;
     font-size: 30px;
     font-style: normal;
     color:#0F1377;
-    padding-top:20px;padding-left:395px
+    padding-top:20px;padding-left:355px
                                   
   }
   .manage
@@ -356,6 +498,7 @@
     #main {
       transition: margin-left .5s;
       padding: 16px;
+      height: auto;
     }
     .image-upload-two{
         grid-area: img-u-two;
@@ -409,15 +552,18 @@
         cursor: pointer;
       }
       .profile{
-          font-family: Ubuntu;
-          font-size: 30px;
-          font-style: normal;
-          color:#0F1377;
-          padding-top:20px;padding-left:51px;
+        font-family: Ubuntu;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 500;
+        color: #0F1377;
+        padding-top: 20px;
+        text-align: center;
+         width: 800px;
       }
       .customise
       {
-          margin-left: 317px;margin-top: -40px;
+          margin-left: 317px;margin-top: 40px;
       }
       .click
       {
@@ -474,19 +620,136 @@
     width: 523px;
     margin-top: 25px;
     border-radius: 15px;
-    padding: 12px;
+    padding: 22px;
     border: 1px solid #f1f5f6;
   }
     
                                   
   
   }
-@media(min-width:720px) and (max-width: 853px) {
-  /*UPLOAD*/                            
+@media(min-width:720px) and (max-width: 899px) {
+  .row{
+    flex-direction: column;
+  }
+  /*UPLOAD*/       
+  .title
+{
+  padding: 5%;
+  /* padding-left: 204px; */
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  color: #0A0E69;
+  text-align: left;
+}
+.mt-138
+{
+  margin-top:138px
+}
+.fill
+{
+  padding: 0px 5% 25px;
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    color: #0A0E69;
+    text-align: left;
+}
+.personal
+{
+
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: #0A0E69;
+    padding-left: 5%;
+}
+.formml
+{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+}
+.fmselect
+{
+  color: #5A5A5A;border: 1px solid #555555; width:486px; height: 44px; margin-top:7px
+}
+.divbtn
+{
+  margin-top: 50px; margin-bottom: 204px;
+}
+.btnproceed
+{
+  background-color: #A0BD1C; width: 157px; height: 44px;font-family: Ubuntu;color:#ffffff;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nameappears
+{
+  padding-top:19px; color: #C8730F;font-family: Ubuntu;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;     
+}
+.firstname
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.middlename
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.lastname
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.dob
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.email
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.passno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.code
+{
+  color: #5A5A5A;border: 1px solid #555555; width:486px; height: 44px;
+}
+.mobileno
+{
+  width:486px;height:43px;border:1px solid #555555;font-size: 13px;margin-top: -20px;
+}
+.mobileno2
+{
+  width:326px;height:43px;border:1px solid #555555;font-size: 13px;
+  
+}
+.please
+{
+  height: 16px;padding-top: 27px;font-family: Ubuntu;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nationality
+{
+  border: 1px solid #555555; width:100%; height: 44px; margin-top:27px;color: #5A5A5A;
+}                     
 .left-sidebar a:hover {
   color: #f1f1f1;
 }
-
+.add
+{
+  font-family: Ubuntu;padding-left:255px;color:#ffffff;font-size: 13px;font-style: normal;font-weight: 400;
+} 
+.debittext
+{
+  font-family: Ubuntu;padding-left:32px;color:#ffffff;font-size: 18px;font-style: normal;font-weight: 400;
+}  
 .left-sidebar .closebtn {
   position: absolute;
   top: 0;
@@ -500,10 +763,10 @@
   padding: 16px;
 }
 .drop-zone {
-  width: 657px;
+  width: 85%;
   height: 360px;
-  margin-top: 82px;
-  margin-left:23px;
+  margin-top: 30px;
+  margin-left:51px;
   display: flex;
   font-family: Rubik;
   font-weight: 500;
@@ -514,6 +777,15 @@
   border: 1px dashed #0A0E69;
   border-radius: 10px;
 }
+
+.upload-input {
+  width:307px;
+  height:43px;
+  /* border:1px solid #555555; */
+  font-size: 13px;
+  margin-top: 50px;
+  margin-left: 51px;
+}   
 
 .drop-zone--over {
   border-style: solid;
@@ -553,8 +825,8 @@
   font-family: Rubik;
   font-size: 30px;
   font-style: normal;
-  color:#000000;
-  padding-top:0px;padding-left:91px;
+  color:#0F1377;
+  padding-top:0px;padding-left:51px;
 }
 .uploadtext
 {
@@ -563,7 +835,7 @@
   font-style: normal;
   font-weight: 400;
   padding-top:10px;
-  padding-left: 91px;color:#0A0E69;
+  padding-left: 51px;color:#0A0E69;
 }
 .pleaseupload
 {
@@ -572,12 +844,12 @@
   font-style: normal;
   font-weight: 400;
   padding-top:2px;
-  padding-left: 91px;color:#000000;
+  padding-left: 51px;color:#000000;
                
 }
 .drop-zonep
 {
-  margin-left: 270px; margin-top:94px
+  margin-left: 40%; margin-top:94px
 }
 .dropfilep
 {
@@ -612,9 +884,13 @@
   font-style: normal;
   font-weight: 400;           
 }
+.mt-138 {
+  margin-top: 18px;
+  margin-left: 30px;
+}
 .h3div
 {
-  margin-left: 91px;
+  margin-left: 31px;
 }
 .tablecard
 {
@@ -623,8 +899,12 @@
   /*Track progress*/
   .progresscard
   {
-    width:925px;height:440px;background-color: #f7f7f7; margin-top: 68px; margin-left: 17px;
-    overflow-x:auto;
+    width: 700px;
+    height: 440px;
+    background-color: #f7f7f7;
+    margin: 68px auto;
+    /* margin-left: 17px; */
+    overflow-x: auto;
   }
   .progressservice
   {
@@ -637,12 +917,18 @@
   }
   .progressth
   {
-    padding-top:48px;padding-left:36px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 700;
+    padding-top:48px;padding-left:56px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 700;
+    width: 50%;
     
   }
   .progressapprove
   {
-    padding-top:48px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 500;
+    color: #080C58;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    width: 50%;
   }
   
   /*SERVICES*/
@@ -681,13 +967,13 @@
   line-height: 1.5rem;
   }
   .containerques {
-  background-color: white;
-  color: #0A0E69;
-  border-radius: 10px;
-  width: 100%;
-  margin: 20px 0;
- 
-  box-shadow: 0 5px 10px 0 rgb(0,0,0,0.25);
+    background-color: white;
+    border: 1px solid #0A0E69;
+    color: #0A0E69;
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px 82px;
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
   }
   .servicesh3
   {
@@ -754,6 +1040,7 @@
   .bankh3
   {
     font-family: Ubuntu;
+    font-weight: 500;
     font-size: 30px;
     font-style: normal;
     color: #0F1377;
@@ -879,22 +1166,25 @@
       .profile{
           font-family: Ubuntu;
           font-size: 30px;
+          font-weight: 500;
           font-style: normal;
           color:#0F1377;
-          padding-top:20px;padding-left:51px;
+          padding-top:20px;padding-left:281px;
       }
       .customise
       {
-          margin-left: 317px;margin-top: -40px;
+        margin-top: 40px; display: flex;
+        justify-content: center;
       }
       .click
       {
-          padding-top:66px;font-family: Ubuntu;
-          font-size: 13px;
-          padding-left: 10px;
-          font-style: normal;
-          font-weight: 400;
-          color:#1161D9;
+        padding-top: 180px;
+        font-family: Ubuntu;
+        font-size: 13px;
+        margin-left: -100px;
+        font-style: normal;
+        font-weight: 400;
+        color: #1161D9;
                               
       }
       .accountrow
@@ -904,7 +1194,7 @@
       .accountfirst
       {
           font-family: Rubik;
-          font-size: 16px;
+          font-size: 16px;                                                                                                         
           font-style: normal;
           font-weight: 400;
           color:#000000;
@@ -940,18 +1230,134 @@
     width: 523px;
     margin-top: 25px;
     border-radius: 15px;
-    padding: 12px;
+    padding: 22px;
     border: 1px solid #f1f5f6;
   }
     
                                   
   
   }
-@media(min-width:600px) and (max-width: 640px) {
+@media(min-width:600px) and (max-width: 719px) {
+  .title
+{
+  padding: 5%;
+  /* padding-left: 204px; */
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  color: #0A0E69;
+  text-align: left;
+}
+.fill
+{
+  padding: 0px 5% 25px;
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    color: #0A0E69;
+    text-align: left;
+}
+.mt-138
+{
+  margin-top:18px;
+  margin-left: 40px;
+}
+.personal
+{
+
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: #0A0E69;
+    padding-left: 5%;
+}
+.formml
+{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+}
+.fmselect
+{
+  color: #5A5A5A;border: 1px solid #555555; width:486px; height: 44px; margin-top:7px
+}
+.divbtn
+{
+  margin-top: 50px; margin-bottom: 204px;
+}
+.btnproceed
+{
+  background-color: #A0BD1C; width: 157px; height: 44px;font-family: Ubuntu;color:#ffffff;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nameappears
+{
+  padding-top:19px; color: #C8730F;font-family: Ubuntu;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;     
+}
+.firstname
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.middlename
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.lastname
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.dob
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.email
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.passno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.code
+{
+  color: #5A5A5A;border: 1px solid #555555; width:486px; height: 44px;
+}
+.mobileno
+{
+  width:486px;height:43px;border:1px solid #555555;font-size: 13px;margin-top: -25px;
+}
+.mobileno2
+{
+  width:358px;height:43px;border:1px solid #555555;font-size: 13px;
+ 
+}
+.please
+{
+  height: 16px;padding-top: 27px;font-family: Ubuntu;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nationality
+{
+  border: 1px solid #555555; width:100%; height: 44px; margin-top:27px;color: #5A5A5A;
+}
   /*Track progress*/
+  .add
+{
+  font-family: Ubuntu;padding-left:255px;color:#ffffff;font-size: 13px;font-style: normal;font-weight: 400;
+}  
+.debittext
+{
+  font-family: Ubuntu;padding-left:32px;color:#ffffff;font-size: 18px;font-style: normal;font-weight: 400;
+} 
   .progresscard
   {
-    width:525px;height:440px;background-color: #f7f7f7; margin-top: 68px; margin-left: 27px;
+    width:525px;height:440px;background-color: #f7f7f7; margin: 68px auto;
     overflow-x:auto;
   }
   .progressservice
@@ -1012,9 +1418,9 @@
     background-color: white;
     color: #0A0E69;
     border-radius: 10px;
-    width: 100%;
-    margin: 20px 0;
-    
+    border: 1px solid #0A0E69;
+    width: 80%;
+    margin: 20px 82px;
     box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
 }
   .servicesh3
@@ -1082,6 +1488,7 @@
   .bankh3
   {
     font-family: Ubuntu;
+    font-weight: 500;
     font-size: 30px;
     font-style: normal;
     color: #0F1377;
@@ -1101,7 +1508,7 @@
   .bankdiv
   {
     height: 206px;
-    width: 556px;
+    width: 100%;
     margin: 68px auto;
     border-radius: 20px;
     background: #0E5FDA;
@@ -1208,6 +1615,7 @@
         font-size: 30px;
         font-style: normal;
         color: #0F1377;
+        font-weight: 500;
         padding-top: 10px;
         padding-bottom: 20px;
         padding-left: 191px;
@@ -1270,7 +1678,7 @@
     width: 523px;
     margin-top: 25px;
     border-radius: 15px;
-    padding: 12px;
+    padding: 22px;
     border: 1px solid #f1f5f6;
   }
     
@@ -1292,9 +1700,9 @@
     padding: 16px;
   }
   .drop-zone {
-    width: 100%;
+    width: 80%;
     height: 100%;
-    margin: 82px auto;
+    margin: 30px auto;
     display: flex;
     font-family: Rubik;
     font-weight: 500;
@@ -1305,6 +1713,15 @@
     border: 1px dashed #0A0E69;
     border-radius: 10px;
   }
+
+  .upload-input {
+    width:307px;
+    height:43px;
+    /* border:1px solid #555555; */
+    font-size: 13px;
+    margin-top: 50px;
+    margin-left: 50px;
+  }   
   
   .drop-zone--over {
     border-style: solid;
@@ -1344,7 +1761,7 @@
     font-family: Rubik;
     font-size: 30px;
     font-style: normal;
-    color:#000000;
+    color:#0F1377;
     padding-top:0px;padding-left:51px;
   }
   .uploadtext
@@ -1368,8 +1785,8 @@
   }
   .drop-zonep
   {
-    margin-left: 230px;
-    margin-top: 94px;
+    margin-left: 40%;
+    margin-top: 54px;
   }
   .dropfilep
   {
@@ -1392,7 +1809,7 @@
   {
     font-family: Rubik;color: #251D1D;
     font-size: 20px;
-    margin-top: 97px;
+    margin-top: 7px;
     font-style: normal;
     font-weight: 400;
                         
@@ -1410,489 +1827,121 @@
   }
   .tablecard
   {
-    width:545px;height:440px;background-color: #f7f7f7; margin-top: 68px;margin-bottom: 200px; margin-left: 17px;
+    width:545px;height:440px;background-color: #f7f7f7; margin-top: 8px;margin-bottom: 200px; margin-left: 17px;
   }
   }
-@media(min-width:480px) and (max-width: 540px) {
-  /*Track progress*/
-  .progresscard
-  {
-    width:525px;height:440px;background-color: #f7f7f7; margin-top: 68px; margin-left: 27px;
-    overflow-x:auto;
-  }
-  .progressservice
-  {
-    color:#A0BD1C;font-family: Ubuntu;padding-left:36px;font-size: 18px;font-style: normal;font-weight: 700;
-  }
-  .progressstatus
-  {
-    color:#A0BD1C;font-family: Ubuntu;font-size: 18px;font-style: normal;font-weight: 700;
-    
-  }
-  .progressth
-  {
-    padding-top:48px;padding-left:36px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 700;
-    
-  }
-  .progressapprove
-  {
-    padding-top:48px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 500;
-  }
-  
-  /*SERVICES*/
-  .question {
-    font-family: Ubuntu;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  padding: 20px 80px 20px 20px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  }
-  
-  .question::after {
-  content: "\002B";
-  font-size: 2.2rem;
-  position: absolute;
-  right: 20px;
-  transition: 0.2s;
-  }
-  
-  .question.active::after {
-  transform: rotate(45deg);
-  }
-  
-  .answercont {
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.3s;
-  }
-  
-  .answer {
-  padding: 0 20px 20px;
-  line-height: 1.5rem;
-  }
-  .containerques {
-    background-color: white;
-    color: #0A0E69;
-    border-radius: 10px;
-    width: 100%;
-    margin: 20px 0;
-    /* margin-left: 23px; */
-    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
-}
-  .servicesh3
-  {
-    font-family: Ubuntu;
-    font-size: 30px;
+@media(min-width:480px) and (max-width: 599px) {
+  .title
+{
+    font-size: 5%;
     font-style: normal;
-    color:#0F1377;
-    padding-top:20px;padding-left:51px
-                                  
-  }
-  
-  /*Bank SETTINGS*/
-  .image-upload-two{
-    grid-area: img-u-two;
-    display: flex;
-    
-  }
-  .center2 {
-    display:inline;
-    margin: 3px;
-  }
-  
-  .form-input2 {
-    width:100px;
-    padding:3px;
-    background:#fff;
-    
-  }
-  .form-input2 input {
-    display:none;
-  }
-  .form-input2 label {
-    display:block;
-    width:100px;
-    height: auto;
-    max-height: 100px;
-    border-radius:10px;
-    cursor:pointer;
-  }
-  
-  .form-input2 img {
-    width:166px;
-    height: 166px;
-    margin: 2px;
-    
-  }
-  
-  .imgRemove{
-    position: relative;
-    bottom: 114px;
-    left: 68%;
-    background-color: transparent;
-    border: none;
-    font-size: 30px;
-    outline: none;
-  }
-  .imgRemove::after{
-    content: ' \21BA';
-    color: #fff;
-    font-weight: 900;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .bankh3
-  {
     font-family: Ubuntu;
-    font-size: 30px;
-    font-style: normal;
-    color: #0F1377;
-    padding-top: 20px;
-    padding-left: 51px;                              
-  }
-  .manage
-  {
-    padding-top: 51px;
-    font-family: Ubuntu;
-    font-size: 16px;
-    padding-left: 51px;
-    font-style: normal;
-    font-weight: 400;
-    color: #1161D9;             
-  }
-  .bankdiv
-  {
-    height: 206px;
-    width: 440px;
-    margin: 68px auto;
-    border-radius: 20px;
-    background: #0E5FDA;
-  }
-  .bankdivp
-  {
-    padding-left: 80px;
-    padding-top: 74px;
-    border-radius: 0px;
-    
-  }
-  
-  .debitcard
-  {
-    height: 60px;
-    margin-left: 25px;
-    width: 400px;
-    border-radius: 10px;
-    padding: 20px;
-    color: #fff;
-    background-color: #ADC92E;
-  }
-  .cancelbutton
-  {
-    height: 60px;margin-left:25px;
-      width: 400px;                            
-      border-radius: 10px;
-      border:1px solid #ADC92E;
-      padding: 20px;
-      color: #ADC92E;
-      margin-bottom:347px;
-      background-color: #ffffff;
-  }
-  
-  /*ACCOUNT PAGE*/
-  .left-sidebar a:hover {
-      color: #f1f1f1;
-    }
-    
-    .left-sidebar .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-    
-    #main {
-      transition: margin-left .5s;
-      padding: 16px;
-    }
-    .image-upload-two{
-        grid-area: img-u-two;
-        display: flex;
-        
-      }
-      .center {
-        display:inline;
-        margin: 3px;
-      }
-    
-      .form-input {
-        width:100px;
-        padding:3px;
-        background:#fff;
-        
-      }
-      .form-input input {
-        display:none;
-      }
-      .form-input label {
-        display:block;
-        width:100px;
-        height: auto;
-        max-height: 100px;
-        border-radius:10px;
-        cursor:pointer;
-      }
-      
-      .form-input img {
-        width:166px;
-        height: 166px;
-        margin: 2px;
-        
-      }
-    
-      .imgRemove{
-        position: relative;
-        bottom: 114px;
-        left: 68%;
-        background-color: transparent;
-        border: none;
-        font-size: 30px;
-        outline: none;
-      }
-      .imgRemove::after{
-        content: ' \21BA';
-        color: #fff;
-        font-weight: 900;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-      .profile {
-        font-family: Ubuntu;
-        font-size: 30px;
-        font-style: normal;
-        color: #0F1377;
-        padding-top: 10px;
-        padding-bottom: 20px;
-        padding-left: 141px;
-    }
-      .customise {
-        margin-left: 107px;
-        margin-top: 0px;
-    }
-      .click
-      {
-          padding-top:66px;font-family: Ubuntu;
-          font-size: 13px;
-          padding-left: 10px;
-          font-style: normal;
-          font-weight: 400;
-          color:#1161D9;
-                              
-      }
-      .accountrow
-      {
-          margin-left: 0px; margin-top:46px
-      }
-      .accountfirst
-      {
-          font-family: Rubik;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          color:#000000;
-                          
-      }
-      .accountinput {
-        border: 1px solid #E9EDF0;
-    font-family: ubuntu;
-    margin-top: 21px;
-    height: 59px;
-    width: 390px;
-    background: #E9EDF0;
-    color: #444649;
-    border-radius: 6px;
-    padding: 20px;
-    }
-    .accountbutton
-    {
-      height: 60px;
-      width: 390px;                            
-      border-radius: 10px;
-      padding: 20px;
-      color: #fff;
-      margin-bottom: 347px;
-      background-color: #1161D9;
-    }
-    .breadcrumb {
-      margin-top: -200px;
-      margin-left: 658px;
-  }
-  .example {
-    height: 84px;
-    margin-left: 73px;
-    width: 523px;
-    margin-top: 25px;
-    border-radius: 15px;
-    padding: 12px;
-    border: 1px solid #f1f5f6;
-  }
-    
-    /*UPLOAD*/ 
-                              
-  .left-sidebar a:hover {
-    color: #f1f1f1;
-  }
-  
-  .left-sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  #main {
-    transition: margin-left .5s;
-    padding: 16px;
-  }
-  .drop-zone {
-    width: 100%;
-    height: 100%;
-    margin: 82px auto;
-    display: flex;
-    font-family: Rubik;
     font-weight: 500;
+    color: #0A0E69;
+    padding-left: 5%;
+    text-align: left;
+}
+.fill
+{
+  padding-top: 0px;
+    
+    font-family: Ubuntu;
     font-size: 20px;
-    cursor: pointer;
-    color: #cccccc;
-    background-color: #ffffff;
-    border: 1px dashed #0A0E69;
-    border-radius: 10px;
-  }
+    font-style: normal;
+    font-weight: 200;
+    color: #0A0E69;
+    padding-left: 5%;
+}
+.personal
+{
+  font-family: Ubuntu;padding-left: 5%;font-size: 18px;font-style: normal;font-weight: 400;padding-top:12px;color:#0A0E69;
+}
+.formml
+{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+}
+.fmselect
+{
+  color: #5A5A5A;border: 1px solid #555555; width:400px; height: 44px; margin-top:7px
+}
+.divbtn
+{
+  margin-top: 50px; margin-bottom: 204px;
+}
+.btnproceed
+{
+  background-color: #A0BD1C; width: 157px; height: 44px;font-family: Ubuntu;color:#ffffff;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nameappears
+{
+  padding-top:19px; color: #C8730F;font-family: Ubuntu;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;     
+}
+.firstname
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.middlename
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;margin-top:17px;
+}
+.lastname
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;margin-top:17px;
+}
+.dob
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.email
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.passno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px; margin-top:17px;
+}
+.code
+{
+  color: #5A5A5A;border: 1px solid #555555; width:400px; height: 44px;
+}
+.mobileno
+{
+  width:400px;height:43px;border:1px solid #555555;font-size: 13px; margin-top:-25px;
+}
+.mobileno2
+{
+  width:285px;height:43px;border:1px solid #555555;font-size: 13px;
   
-  .drop-zone--over {
-    border-style: solid;
-  }
-  
-  .drop-zone__input {
-    display: none;
-  }
-  
-  .drop-zone__thumb {
-      width: 50%;
-      margin-top: 70px;
-      margin-left: -200px;
-      height: 50%;
-      background-repeat: no-repeat;
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #cccccc;
-      background-size: contain;
-      position: relative;
-  }
-  
-  .drop-zone__thumb::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 5px 0;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.75);
-    font-size: 14px;
-    text-align: center;
-  }
-  .documentext
-  {
-    font-family: Rubik;
-    font-size: 30px;
-    font-style: normal;
-    color:#000000;
-    padding-top:0px;padding-left:51px;
-  }
-  .uploadtext
-  {
-    font-family: Rubik;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 400;
-    padding-top:10px;
-    padding-left: 18px;color:#0A0E69;
-  }
-  .pleaseupload
-  {
-    font-family: Rubik;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    padding-top:2px;
-    padding-left: 18px;color:#000000;
-                  
-  }
-  .drop-zonep
-  {
-    margin-left: 170px;
-    margin-top: 54px;
-  }
-  .dropfilep
-  {
-    margin-top: 160px; margin-left: -104px;font-family: Rubik;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    color:#000000;
-  }
-  .dropfilep2
-  {
-    margin-top: 251px; margin-left: -134px;font-family: Rubik;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    color:#000000;
-                    
-  }
-  .h3doc
-  {
-    font-family: Rubik;color: #251D1D;
-    font-size: 20px;
-    margin-top: 97px;
-    font-style: normal;
-    font-weight: 400;
-                        
-  }
-  .h3p
-  {
-    font-family: Rubik;color:#5A5A5A;margin-top: 16px;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;           
-  }
-  .h3div
-  {
-    margin-left: 18px;
-  }
-  .tablecard
-  {
-    width: 445px;
-    height: 440px;
-    margin: auto;
-    background-color: #f7f7f7;
-  }
-  }
-@media(min-width:375px) and (max-width: 475px) {
+}
+.please
+{
+  height: 16px;padding-top: 27px;font-family: Ubuntu;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nationality
+{
+  border: 1px solid #555555; width:100%; height: 44px; margin-top:27px;color: #5A5A5A;
+}
   /*Track progress*/
+  .add
+{
+  font-family: Ubuntu;padding-left:255px;color:#ffffff;font-size: 13px;font-style: normal;font-weight: 400;
+}  
+.debittext
+{
+  font-family: Ubuntu;padding-left:32px;color:#ffffff;font-size: 18px;font-style: normal;font-weight: 400;
+} 
   .progresscard
   {
-    width: 100%;
+    width: 90%;
     height: 440px;
     background-color: #f7f7f7;
-    margin-top: 68px;
-    margin-left: 7px;
+    margin-top: 28px;
+    margin-left: 5%;
     overflow-x: auto;
   }
   .progressservice
@@ -1953,9 +2002,9 @@
     background-color: white;
     color: #0A0E69;
     border-radius: 10px;
-    width: 100%;
-    margin: 20px 0;
-    /* margin-left: 23px; */
+    border: 1px solid #0A0E69;
+    width: 80%;
+    margin: 20px 82px;
     box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
 }
   .servicesh3
@@ -2024,10 +2073,11 @@
   {
     font-family: Ubuntu;
     font-size: 30px;
+    font-weight: 500;
     font-style: normal;
     color: #0F1377;
     padding-top: 20px;
-    padding-left: 51px;                              
+    text-align: center;                             
   }
   .manage
   {
@@ -2042,7 +2092,7 @@
   .bankdiv
   {
     height: 206px;
-    width: 440px;
+    width: 100%;
     margin: 68px auto;
     border-radius: 20px;
     background: #0E5FDA;
@@ -2149,6 +2199,7 @@
         font-family: Ubuntu;
         font-size: 30px;
         font-style: normal;
+        font-weight: 500;
         color: #0F1377;
         padding-top: 10px;
         padding-bottom: 20px;
@@ -2209,10 +2260,10 @@
   .example {
     height: 84px;
     margin-left: 73px;
-    width: 523px;
+    width: 100%;
     margin-top: 25px;
     border-radius: 15px;
-    padding: 12px;
+    padding: 22px;
     border: 1px solid #f1f5f6;
   }
     
@@ -2235,9 +2286,9 @@
     padding: 16px;
   }
   .drop-zone {
-    width: 100%;
+    width: 80%;
     height: 100%;
-    margin: 82px auto;
+    margin: 30px 51px;
     display: flex;
     font-family: Rubik;
     font-weight: 500;
@@ -2248,6 +2299,15 @@
     border: 1px dashed #0A0E69;
     border-radius: 10px;
   }
+
+  .upload-input {
+    width:307px;
+    height:43px;
+    /* border:1px solid #555555; */
+    font-size: 13px;
+    margin-top: 50px;
+    margin-left: 51px;
+  }   
   
   .drop-zone--over {
     border-style: solid;
@@ -2287,7 +2347,7 @@
     font-family: Rubik;
     font-size: 30px;
     font-style: normal;
-    color:#000000;
+    color:#0F1377;
     padding-top:0px;padding-left:51px;
   }
   .uploadtext
@@ -2297,7 +2357,7 @@
     font-style: normal;
     font-weight: 400;
     padding-top:10px;
-    padding-left: 18px;color:#0A0E69;
+    padding-left: 51px;color:#0A0E69;
   }
   .pleaseupload
   {
@@ -2306,12 +2366,12 @@
     font-style: normal;
     font-weight: 400;
     padding-top:2px;
-    padding-left: 18px;color:#000000;
+    padding-left: 51px;color:#000000;
                   
   }
   .drop-zonep
   {
-    margin-left: 120px;
+    margin-left: 35%;
     margin-top: 54px;
   }
   .dropfilep
@@ -2335,10 +2395,622 @@
   {
     font-family: Rubik;color: #251D1D;
     font-size: 20px;
-    margin-top: 97px;
+    margin-top: 7px;
     font-style: normal;
     font-weight: 400;
                         
+  }
+  .mt-138 {
+    margin-top: 18px;
+    margin-left: 30px;
+}
+  .h3p
+  {
+    font-family: Rubik;color:#5A5A5A;margin-top: 16px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;           
+  }
+  .h3div
+  {
+    margin-left: 30px;
+  }
+  .tablecard
+  {
+    width: 445px;
+    height: 440px;
+    margin: auto;
+    background-color: #f7f7f7;
+  }
+  }
+@media(min-width:375px) and (max-width: 479px) {
+ 
+  .title
+{
+  padding: 5%;
+  /* padding-left: 204px; */
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  color: #0A0E69;
+  text-align: left;
+}
+.fill
+{
+  padding: 0px 5% 25px;
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    color: #0A0E69;
+    text-align: left;
+}
+.personal
+{
+
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: #0A0E69;
+    text-align: left;
+    padding-left: 5%;
+}
+.formml
+{
+  padding-left: 0%;
+  padding-right: 0%;
+  width: 100%;
+}
+.fmselect
+{
+  color: #5A5A5A;border: 1px solid #555555; width:307px; height: 44px; margin-top:7px
+}
+.divbtn
+{
+  margin-top: 50px; margin-bottom: 204px;
+}
+.btnproceed
+{
+  background-color: #A0BD1C; width: 157px; height: 44px;font-family: Ubuntu;color:#ffffff;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nameappears
+{
+  padding-top:19px; color: #C8730F;font-family: Ubuntu;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;     
+}
+.firstname
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.middlename
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.lastname
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.dob
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.email
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.passno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.code
+{
+  color: #5A5A5A;border: 1px solid #555555; width:307px; height: 44px;
+}
+.mobileno
+{
+  width:307px;height:43px;border:1px solid #555555;font-size: 13px; margin-top: -20px;
+}
+.mobileno2
+{
+  width:202;height:43px;border:1px solid #555555;font-size: 13px;
+  
+}
+.please
+{
+  height: 16px;padding-top: 27px;font-family: Ubuntu;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nationality
+{
+  border: 1px solid #555555; width:100%; height: 44px; margin-top:27px;color: #5A5A5A;
+}
+  /*Track progress*/
+  #sidebar
+  {
+    width:0%;
+  }
+  .add
+{
+  font-family: Ubuntu;padding-left:255px;color:#ffffff;font-size: 13px;font-style: normal;font-weight: 400;
+}  
+.debittext
+{
+  font-family: Ubuntu;padding-left:32px;color:#ffffff;font-size: 18px;font-style: normal;font-weight: 400;
+} 
+  .progresscard
+  {
+    width: 90%;
+    height: 440px;
+    background-color: #f7f7f7;
+    margin-top: 28px;
+    margin-left: 5%;
+    overflow-x: auto;
+  }
+  .progressservice
+  {
+    color:#A0BD1C;font-family: Ubuntu;padding-left:36px;font-size: 18px;font-style: normal;font-weight: 700;
+  }
+  .progressstatus
+  {
+    color:#A0BD1C;font-family: Ubuntu;font-size: 18px;font-style: normal;font-weight: 700;
+    
+  }
+  .progressth
+  {
+    padding-top:48px;padding-left:36px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 700;
+    
+  }
+  .progressapprove
+  {
+    padding-top:48px;color:#080C58;font-family: Ubuntu;font-size: 16px;font-style: normal;font-weight: 500;
+  }
+  
+  /*SERVICES*/
+  .question {
+    font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 20px 80px 20px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  }
+  
+  .question::after {
+  content: "\002B";
+  font-size: 2.2rem;
+  position: absolute;
+  right: 20px;
+  transition: 0.2s;
+  }
+  
+  .question.active::after {
+  transform: rotate(45deg);
+  }
+  
+  .answercont {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+  }
+  
+  .answer {
+  padding: 0 20px 20px;
+  line-height: 1.5rem;
+  }
+  .containerques {
+    background-color: white;
+    color: #0A0E69;
+    border-radius: 10px;
+    width: 80%;
+    margin: 10px 29px;
+    border: 1px solid #0A0E69;
+    /* margin-left: 23px; */
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
+}
+  .servicesh3
+  {
+    font-family: Ubuntu;
+    font-size: 30px;
+    font-style: normal;
+    color:#0F1377;
+    padding-top:20px;
+    text-align: center;
+                                  
+  }
+  
+  /*Bank SETTINGS*/
+  .image-upload-two{
+    grid-area: img-u-two;
+    display: flex;
+    
+  }
+  .center2 {
+    display:inline;
+    margin: 3px;
+  }
+  
+  .form-input2 {
+    width:100px;
+    padding:3px;
+    background:#fff;
+    
+  }
+  .form-input2 input {
+    display:none;
+  }
+  .form-input2 label {
+    display:block;
+    width:100px;
+    height: auto;
+    max-height: 100px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+  
+  .form-input2 img {
+    width:166px;
+    height: 166px;
+    margin: 2px;
+    
+  }
+  
+  .imgRemove{
+    position: relative;
+    bottom: 114px;
+    left: 68%;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    outline: none;
+  }
+  .imgRemove::after{
+    content: ' \21BA';
+    color: #fff;
+    font-weight: 900;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .bankh3
+  {
+    font-family: Ubuntu;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    color: #0F1377;
+    padding-top: 20px;
+    text-align: center;                            
+  }
+  .manage
+  {
+    padding-top: 51px;
+    font-family: Ubuntu;
+    font-size: 16px;
+    padding-left: 4%;
+    font-style: normal;
+    font-weight: 400;
+    color: #1161D9;             
+  }
+  .bankdiv
+  {
+    height: 206px;
+    width: 100%;
+    margin: 68px auto;
+    border-radius: 20px;
+    background: #0E5FDA;
+  }
+  .bankdivp
+  {
+    padding-left: 7%;
+    padding-top: 74px;
+    border-radius: 0px;
+    
+  }
+  
+  .debitcard
+  {
+    height: 60px;
+    margin-left: 5px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    background-color: #ADC92E;
+  }
+  .cancelbutton
+  {
+    height: 60px;margin-left:5px;
+      width: 100%;                            
+      border-radius: 10px;
+      border:1px solid #ADC92E;
+      padding: 20px;
+      color: #ADC92E;
+      margin-bottom:347px;
+      background-color: #ffffff;
+  }
+  
+  /*ACCOUNT PAGE*/
+  .left-sidebar a:hover {
+      color: #f1f1f1;
+    }
+    
+    .left-sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+    .image-upload-two{
+        grid-area: img-u-two;
+        display: flex;
+        
+      }
+      .center {
+        display:inline;
+        margin: 3px;
+      }
+    
+      .form-input {
+        width:100px;
+        padding:3px;
+        background:#fff;
+        
+      }
+      .form-input input {
+        display:none;
+      }
+      .form-input label {
+        display:block;
+        width:100px;
+        height: auto;
+        max-height: 100px;
+        border-radius:10px;
+        cursor:pointer;
+      }
+      
+      .form-input img {
+        width:166px;
+        height: 166px;
+        margin: 2px;
+        
+      }
+    
+      .imgRemove{
+        position: relative;
+        bottom: 114px;
+        left: 68%;
+        background-color: transparent;
+        border: none;
+        font-size: 30px;
+        outline: none;
+      }
+      .imgRemove::after{
+        content: ' \21BA';
+        color: #fff;
+        font-weight: 900;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .profile {
+        font-family: Ubuntu;
+        font-size: 30px;
+        font-weight: 500;
+        font-style: normal;
+        color: #0F1377;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+      .customise {
+        margin-left: 57px;
+        margin-top: 0px;
+        
+    }
+      .click
+      {
+          padding-top:66px;font-family: Ubuntu;
+          font-size: 13px;
+          padding-left: 10px;
+          font-style: normal;
+          font-weight: 400;
+          color:#1161D9;
+                              
+      }
+      .accountrow
+      {
+          margin-left: 0px; margin-top:46px
+      }
+      .accountfirst
+      {
+          font-family: Rubik;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          color:#000000;
+                          
+      }
+      .accountinput {
+        border: 1px solid #E9EDF0;
+    font-family: ubuntu;
+    margin-top: 21px;
+    height: 59px;
+    width: 110%;
+    background: #E9EDF0;
+    color: #444649;
+    border-radius: 6px;
+    padding: 20px;
+    }
+    .accountbutton
+    {
+      height: 60px;
+      width: 390px;                            
+      border-radius: 10px;
+      padding: 20px;
+      color: #fff;
+      margin-bottom: 347px;
+      background-color: #1161D9;
+    }
+    .breadcrumb {
+      margin-top: -200px;
+      margin-left: 658px;
+  }
+  .example {
+    height: 84px;
+    margin-left: 73px;
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 15px;
+    padding: 22px;
+    border: 1px solid #f1f5f6;
+  }
+    
+    /*UPLOAD*/ 
+                              
+  .left-sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .left-sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  .drop-zone {
+    width: 100%;
+    height: 100%;
+    margin: 30px auto;
+    display: flex;
+    font-family: Rubik;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #cccccc;
+    background-color: #ffffff;
+    border: 1px dashed #0A0E69;
+    border-radius: 10px;
+  }
+
+  .upload-input {
+    width: 100%;
+    height:43px;
+    /* border:1px solid #555555; */
+    font-size: 13px;
+    margin-top: 50px;
+    /* margin-left: 20px; */
+  }   
+  
+  .drop-zone--over {
+    border-style: solid;
+  }
+  
+  .drop-zone__input {
+    display: none;
+  }
+  
+  .drop-zone__thumb {
+      width: 50%;
+      margin-top: 70px;
+      margin-left: -200px;
+      height: 50%;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #cccccc;
+      background-size: contain;
+      position: relative;
+  }
+  
+  .drop-zone__thumb::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+    text-align: center;
+  }
+  .documentext
+  {
+    font-family: Rubik;
+    font-size: 30px;
+    font-style: normal;
+    color:#0F1377;
+    padding-top:0px;padding-left:51px;
+  }
+  .uploadtext
+  {
+    font-family: Rubik;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top:10px;
+    padding-left: 18px;color:#0A0E69;
+  }
+  .pleaseupload
+  {
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top:2px;
+    padding-left: 18px;color:#000000;
+                  
+  }
+  .drop-zonep
+  {
+    margin-left: 35%;
+    margin-top: 54px;
+  }
+  .dropfilep
+  {
+    margin-top: 160px; margin-left: -104px;font-family: Rubik;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color:#000000;
+  }
+  .dropfilep2
+  {
+    margin-top: 251px; margin-left: -134px;font-family: Rubik;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    color:#000000;
+                    
+  }
+  .h3doc
+  {
+    font-family: Rubik;color: #251D1D;
+    font-size: 20px;
+    margin-top: 7px;
+    font-style: normal;
+    font-weight: 400;                
+  }
+  .mt-138{
+    margin-top: 30px;
   }
   .h3p
   {
@@ -2360,14 +3032,139 @@
   }
 }
 @media(min-width:280px) and (max-width: 374px) {
+  .logoutmobile
+  {
+    display: block;
+    padding-left: 80px;
+  }
+  .logoutlaptop
+  {
+    display: none;
+  }
+  .title
+{
+  padding: 5%;
+  /* padding-left: 204px; */
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  color: #0A0E69;
+  text-align: left;
+}
+.fill
+{
+  padding: 0px 5% 25px;
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    color: #0A0E69;
+    text-align: center;
+}
+.personal
+{
+
+    /* padding-left: 204px; */
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    color: #0A0E69;
+    text-align: left;
+    padding-left: 5%;
+}
+.formml
+{
+  padding-left: 0%;
+  padding-right: 0%;
+  width: 100%;
+}
+.fmselect
+{
+  color: #5A5A5A;border: 1px solid #555555; width:100%; height: 44px; margin-top:7px
+}
+.divbtn
+{
+  margin-top: 50px; margin-bottom: 204px;
+}
+.btnproceed
+{
+  background-color: #A0BD1C; width: 157px; height: 44px;font-family: Ubuntu;color:#ffffff;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nameappears
+{
+  padding-top:19px; color: #C8730F;font-family: Ubuntu;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;     
+}
+.firstname
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.middlename
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.lastname
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.dob
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.email
+{
+  width:100%; height:43px;border:1px solid #555555;font-size: 13px;
+}
+.passno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+}
+.code
+{
+  color: #5A5A5A;border: 1px solid #555555; width:100%; height: 44px;
+}
+.mobileno
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;margin-top: -25px;
+}
+.mobileno2
+{
+  width:100%;height:43px;border:1px solid #555555;font-size: 13px;
+
+}
+.please
+{
+  height: 16px;padding-top: 27px;font-family: Ubuntu;font-size: 14px;font-style: normal;font-weight: 400;
+}
+.nationality
+{
+  border: 1px solid #555555; width:100%; height: 44px; margin-top:27px;color: #5A5A5A;
+}
+  .add
+{
+  font-family: Ubuntu;padding-left:55px;color:#ffffff;font-size: 13px;font-style: normal;font-weight: 400;
+} 
+.debittext
+{
+  font-family: Ubuntu;padding-left:12px;color:#ffffff;font-size: 18px;font-style: normal;font-weight: 400;
+} 
   /*Track progress*/
+  #sidebar
+  {
+    width:0%;
+  }
   .progresscard
   {
-    width: 100%;
+    width: 90%;
     height: 440px;
     background-color: #f7f7f7;
-    margin-top: 68px;
-    margin-left: 7px;
+    margin-top: 28px;
+    margin-left: 5%;
     overflow-x: auto;
   }
   .progressservice
@@ -2388,7 +3185,11 @@
   {
     padding-top:48px;color:#080C58;font-family: Ubuntu;font-size: 12px;font-style: normal;font-weight: 500;
   }
-  
+  .trackh3
+{
+ 
+  margin-top:50px;padding-left:51px
+}
   /*SERVICES*/
   .question {
     font-family: Ubuntu;
@@ -2428,8 +3229,9 @@
     background-color: white;
     color: #0A0E69;
     border-radius: 10px;
-    width: 100%;
-    margin: 20px 0;
+    width: 80%;
+    border: 1px solid #0A0E69;
+    margin: 10px 29px;
     /* margin-left: 23px; */
     box-shadow: 0 5px 10px 0 rgb(0 0 0 / 25%);
 }
@@ -2440,7 +3242,7 @@
     font-style: normal;
     color: #0F1377;
     padding-top: 20px;
-    padding-left: 21px;
+    text-align: center;
                                   
   }
   
@@ -2502,14 +3304,15 @@
     font-size: 30px;
     font-style: normal;
     color: #0F1377;
+    font-weight: 500;
     padding-top: 20px;
-    padding-left: 51px;                              
+    text-align: center;                            
   }
   .manage
   {
     padding-top: 51px;
     font-family: Ubuntu;
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 1px;
     font-style: normal;
     font-weight: 400;
@@ -2525,7 +3328,7 @@
   }
   .bankdivp
   {
-    padding-left: 40px;
+    padding-left: 10px;
     padding-top: 74px;
     border-radius: 0px;
     
@@ -2625,6 +3428,7 @@
         font-family: Ubuntu;
     font-size: 20px;
     font-style: normal;
+    font-weight: 500;
     color: #0F1377;
     padding-top: 10px;
     padding-bottom: 20px;
@@ -2663,7 +3467,7 @@
     font-family: ubuntu;
     margin-top: 21px;
     height: 59px;
-    width: 250px;
+    width: 110%;
     background: #E9EDF0;
     color: #444649;
     border-radius: 6px;
@@ -2686,10 +3490,10 @@
   .example {
     height: 84px;
     margin-left: 73px;
-    width: 523px;
+    width: 100%;
     margin-top: 25px;
     border-radius: 15px;
-    padding: 12px;
+    padding: 22px;
     border: 1px solid #f1f5f6;
   }
     
@@ -2710,11 +3514,12 @@
   #main {
     transition: margin-left .5s;
     padding: 16px;
+
   }
   .drop-zone {
     width: 100%;
     height: 100%;
-    margin: 82px auto;
+    margin: 30px auto;
     display: flex;
     font-family: Rubik;
     font-weight: 500;
@@ -2725,6 +3530,16 @@
     border: 1px dashed #0A0E69;
     border-radius: 10px;
   }
+
+  .upload-input {
+    width: 100%;
+    height:43px;
+    /* border:1px solid #555555; */
+    font-size: 13px;
+    margin-top: 50px;
+    /* margin-left: 20px; */
+  }   
+  
   
   .drop-zone--over {
     border-style: solid;
@@ -2764,7 +3579,7 @@
     font-family: Rubik;
     font-size: 30px;
     font-style: normal;
-    color:#000000;
+    color:#0F1377;
     padding-top:0px;padding-left:51px;
   }
   .uploadtext
@@ -2812,10 +3627,13 @@
   {
     font-family: Rubik;color: #251D1D;
     font-size: 20px;
-    margin-top: 97px;
+    margin-top: 7px;
     font-style: normal;
-    font-weight: 400;
-                        
+    font-weight: 400;                  
+  }
+
+  .mt-138{
+    margin-top: 30px;;
   }
   .h3p
   {

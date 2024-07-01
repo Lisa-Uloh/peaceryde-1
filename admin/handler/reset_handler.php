@@ -1,8 +1,7 @@
 <?php 
 
-include("../../db/config.php");
-include("../../functions/index.php");
-include("../../models/ResetPassword.php");
+require_once("./models.php");
+
 
 
 $reset_password = new ResetPassword($connect);
@@ -15,35 +14,37 @@ if(isset($_POST['reset'])) {
     $result->execute([$email]);
 
     if($result->rowCount()) {
+        $admin = $result->fetch();
         $response = $reset_password->initializeReset($email);
+
+        if($response) {
+            $time = strtotime("10 mins");
+            setcookie("RESET", $response['reset_id'], $time, '/');
+
+            // send mail
+            $subject = "Password Reset";
+            $pin = $response['pin'];
+            $name = $admin['name'];
+            $message = "<p>Hi $name</p>";
+            $message .= "<p>Your reset pin is <strong>$pin</strong></p>";
+
+            sendMail($subject, $message, "noreply@peacerydeafrica.com", $email);
+
+            // Generate a file
+            $file_handler = fopen("pin.txt", "a+");
+            fwrite($file_handler, "{$response['pin']} \n");
+            fclose($file_handler);
+
+            $alert = [
+                "alert_type" => "success",
+                "alert_message" => "Message sent to your inbox",
+            ];
+
+            $_SESSION['ADMIN_ALERT'] = json_encode($alert);
+
+            header("location: ../verify");
+        }
         
-        $time = strtotime("10 mins");
-        setcookie("RESET", $response['reset_id'], $time, '/');
-         
-        // send mail
-        $from = "alexjace151@gmail.com";
-        $subject = "Password Reset";
-        $message = "Hi {$email}, <br> your reset pin is <strong>${$response['pin']}</strong>";
-        $to = $email;
-
-        sendMail($subject, $message, $from, $to);
-
-        // Generate a file
-        $file_handler = fopen("pin.txt", "a+");
-        fwrite($file_handler, "{$response['pin']} \n");
-        fclose($file_handler);
-
-        $alert = [
-            "alert_type" => "success",
-            "alert_message" => "Message sent to your inbox",
-        ];
-
-        session_start();
-        $_SESSION['ADMIN_ALERT'] = json_encode($alert);
-
-        header("location: ../verify.php");
-
-
     }
     else {
         $alert = [
@@ -54,7 +55,7 @@ if(isset($_POST['reset'])) {
         session_start();
         $_SESSION['ADMIN_ALERT'] = json_encode($alert);
 
-        header("Location: ../reset-password.php");
+        header("Location: ../reset-password");
     }
     
 }
@@ -64,7 +65,7 @@ if(isset($_POST['verify'])){
     $id = $_COOKIE['RESET'];
     
     if($reset_password->verifyPin($id, $pin)){
-        header("location: ../change-password.php");
+        header("location: ../change-password");
     }
 }
 
@@ -79,20 +80,11 @@ if(isset($_POST['change'])) {
         $deleted = $reset_password->deleteReset($id);
         
         if($deleted) {
-            
             // destroy cookie
             $time = time() - strtotime("1hr");
             setcookie("RESET", "destroy", $time, '/');
-    
-            $alert = [
-                "alert_type" => "success",
-                "alert_message" => "Password Changed"
-            ];
-    
-            session_start();
-            $_SESSION["alert"] = json_encode($alert);
-            
-            header("Location: ../index.php");
+            setAdminAlert("Password Changed", "success");
+            header("Location: ../index");
         }
     }
 }

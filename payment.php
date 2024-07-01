@@ -1,13 +1,11 @@
 <?php include("./inc/check_session.php") ?>
 
 <?php
-if (!isset($_SESSION["PRICE"])) header("Location: ./index.php");
+if (!isset($_SESSION["PRICE"])) header("Location: ./");
 $userServices = new UserService($connect);
 $services = new Service($connect);
 
 $userId = $_SESSION["REG_NO"];
-
-echo "$userId";
 $service = $userServices->getService($userId);
 
 $service_name = $services->getUserService($service['service_id'])['service'];
@@ -20,11 +18,13 @@ $PRICE = json_decode($_SESSION["PRICE"], true);
 <html lang="en">
 
 <head>
+<?php include("./google_analytics.php"); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>payment</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icon.png">
+    <title>PeaceRyde Africa LLC - Payment</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Ubuntu:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css" />
@@ -37,47 +37,53 @@ $PRICE = json_decode($_SESSION["PRICE"], true);
     <script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/px2code/posize/build/v1.00.3.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+
+    <style>
+        .hidden-box {
+            display: none;
+        }
+    </style>
 </head>
 
 <body style="background-color: #1161D9; overflow-x: hidden;">
     <div class="row">
         <!-- NBV -->
         <?php if ($service['service_id'] === "srvs-002") : ?>
-            <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="col-lg-5 col-md-12 col-sm-12 col-12">
                 <img src="Dashboard/dist/image/logo.png" class="paymentlogoimg">
 
                 <h2 class="paymenth2">Payment</h2>
                 <div class="row paymentdiv">
 
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">Services</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Service</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">Price($)</p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">
                             <?= $service_name; ?>
                         </p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice"><?= " " ?></p>
                     </div>
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">
-                            <?= "Immigration and agency processing fee"; ?>
+                            <?= "Processing fee"; ?>
                         </p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">
                             <?= round($PRICE['Immgration'], 2); ?>
                         </p>
@@ -85,76 +91,86 @@ $PRICE = json_decode($_SESSION["PRICE"], true);
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">Visa fee</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice"><?= round($PRICE['visa'], 2); ?></p>
                     </div>
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">Admin/portal fee</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice"><?= round($PRICE['admin'], 2); ?></p>
                     </div>
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">Biometric</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice"><?= round($PRICE['bio'], 2); ?></p>
                     </div>
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">VAT</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">VAT [7.5%]</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice"><?= round($PRICE['vat'], 2); ?></p>
                     </div>
                 </div>
+
+                <div class="row paymentdiv">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Gross Receipt Tax [1.9914%]</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice"><?= round($PRICE['gross'], 2); ?></p>
+                    </div>
+                </div>
+
                 <div class="reviewline"></div>
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">Total</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice"><?= round($PRICE['total_price'], 2); ?></p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
                 <div class="reviewline"></div>
             </div>
-        
-        <!-- TWP -->
-        <?php elseif($service['service_id'] === "srvs-001"): ?>
-            <div class="col-lg-5 col-md-12 col-sm-12">
+
+            <!-- TWP -->
+        <?php elseif ($service['service_id'] === "srvs-001") : ?>
+            <div class="col-lg-5 col-md-12 col-sm-12 col-12">
                 <img src="Dashboard/dist/image/logo.png" class="paymentlogoimg">
 
                 <h2 class="paymenth2">Payment</h2>
                 <div class="row paymentdiv">
 
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">Services</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Service</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">Price($)</p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">
                             <?= "Nigeria Temporary Work Permit (TWP)" ?>
                         </p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">
                             <?= "" ?>
                         </p>
@@ -162,60 +178,83 @@ $PRICE = json_decode($_SESSION["PRICE"], true);
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">Approval processing fee</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Processing fee</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">
                             <?= round($PRICE['approval'], 2); ?>
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">VAT</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">VAT [7.5%]</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <p class="paymentprice"><?= round($PRICE['tax'], 2); ?></p>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice"><?= round($PRICE['vat'], 2); ?></p>
                     </div>
                 </div>
+
+                <div class="row paymentdiv">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Gross Receipt Tax [1.9914%]</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice"><?= round($PRICE['gross'], 2); ?></p>
+                    </div>
+                </div>
+
                 <div class="reviewline"></div>
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">Total</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <p class="paymentprice"><?=  round($PRICE['total'], 2); ?></p>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice"><?= round($PRICE['total'], 2); ?></p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
                 <div class="reviewline"></div>
             </div>
-        
-        <!-- BI  -->
-        <?php else: ?>
-            <div class="col-lg-5 col-md-12 col-sm-12">
+
+            <!-- BI  -->
+        <?php else : ?>
+            <div class="col-lg-5 col-md-12 col-sm-12 col-12">
                 <img src="Dashboard/dist/image/logo.png" class="paymentlogoimg">
 
                 <h2 class="paymenth2">Payment</h2>
                 <div class="row paymentdiv">
 
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">Services</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Service</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">Price($)</p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">
-                            <?= "Business incorporation processing fee" ?>
+                            <?= "Business incorporation" ?>
                         </p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice">
+                            <?= "" ?>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row paymentdiv">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">
+                            <?= " Processing fee" ?>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">
                             <?= round($PRICE['price'], 2); ?>
                         </p>
@@ -223,85 +262,109 @@ $PRICE = json_decode($_SESSION["PRICE"], true);
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices"> VAT </p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices"> VAT [7.5%]</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
                         <p class="paymentprice">
-                            <?= round($PRICE['tax'], 2); ?>
+                            <?= round($PRICE['vat'], 2); ?>
                         </p>
                     </div>
                 </div>
 
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
-                        <p class="paymentservices">VAT</p>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                        <p class="paymentservices">Gross Receipt Tax [1.9914%]</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <p class="paymentprice"><?= round($PRICE['tax'], 2); ?></p>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice"><?= round($PRICE['gross'], 2); ?></p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
                 <div class="row paymentdiv">
-                    <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                         <p class="paymentservices">Total</p>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <p class="paymentprice"><?=  round($PRICE['total'], 2); ?></p>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                        <p class="paymentprice"><?= round($PRICE['total'], 2); ?></p>
                     </div>
                 </div>
                 <div class="reviewline"></div>
                 <div class="reviewline"></div>
             </div>
         <?php endif; ?>
-        
-        <div class="col-lg-6 col-md-12 col-sm-12">
-            <div class="card leftcard">
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card leftcard" style="border-radius:20px">
                 <form method="post" action="./handlers/payment.php" style="margin-top: 31px;">
                     <h2 class="leftcardh2">Payment Information</h2>
                     <div style=" margin-top: 20px;">
                         <p class="paymentopt">Payment Options</p>
                     </div>
                     <div class="radiodiv">
-                        <input type="radio" name="payment_option" value="paypal" class="radioo"> &nbsp; PayPal <br>
+                        <input type="radio" name="payment_option" value="stripe" checked class="radioo">&nbsp; Stripe <br><br>
+                        <!-- <input type="radio" name="payment_option" value="paystack" checked="checked" class="radioo">&nbsp; Paystack <br><br> -->
 
-                        <input type="radio" name="payment_option" value="card" class="radioo">&nbsp; Credit/ Debit Card <span style="font-size: 12px; color: #C8730F;">(Master card, Visa card,American express card, etc)</span> <br>
-                        <input type="radio" name="payment_option" value="paystack" checked="checked" class="radioo">&nbsp; Paystack <br>
-                        <input type="radio" name="payment_option" value="flutter" class="radioo"> &nbsp; Flutter Wave <br>
-
-                        <p class="cardname">Name of card</p>
-                        <input type="text" name="card_name" class="form-control cardinput" placeholder="John Doe">
-
-                        <p class="cardnumber">Card Number</p>
-                        <input type="text" name="card_no" class="form-control cardinput" placeholder="000 000 000 000 000">
-
-                        <div class="row">
-                            <div class="col-md-4" style="margin-top: 6px;">
-                                <div class="form-group2">
-                                    <p class="expiry">Expiry</p>
-                                    <input type="month" name="card_expiry" class="form-control expiryinput" placeholder="DD/ MM/ YY">
+                        <p style="color: #C8730F; font-family: Ubuntu; font-size: 13px; font-style: normal; font-weight: 400;">We also accept payments from Payoneer and WISE.</p><br>
+                        <p style="color: #C8730F; font-family: Ubuntu; font-size: 13px; font-style: normal; font-weight: 400; padding-right:50px;">ACH and Wire transfers are allowed from all parts of the world, and in all different currencies.</p><br>
+                        <p style="color: #C8730F; font-family: Ubuntu; font-size: 13px; font-style: normal; font-weight: 400; padding-right:50px;">For more payment options please contact <a href="mailto:support@peacerydeafrica.com" style="text-decoration:none">support@peacerydeafrica.com</a> </p><br>
+                        <!-- <input type="radio" name="payment_option" value="payoneer" class="radioo">&nbsp; Payoneer  <br><br>    
+                        <input type="radio" name="payment_option" value="wise" class="radioo"> &nbsp; Wise <br><br> -->
+                        <div class="hidden-box">
+                            <p class="cardname">Name of card</p>
+                            <input type="text" name="card_name" class="form-control cardinput" placeholder="John Doe">
+                            <p class="cardnumber">Card Number</p>
+                            <input type="text" name="card_no" class="form-control cardinput" placeholder="000 000 000 000 000">
+                            <div class="row">
+                                <div class="col-md-4" style="margin-top: 6px;">
+                                    <div class="form-group2">
+                                        <p class="expiry">Expiry</p>
+                                        <input type="month" name="card_expiry" class="form-control expiryinput" placeholder="DD/ MM/ YY">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-1">
-
-                            </div>
-                            <div class="col-md-4" style="margin-top: 6px;">
-                                <div class="form-group2">
-                                    <p class="expiry">CVV</p>
-                                    <input type="text" name="card_cvv" class="form-control expiryinput" placeholder="123">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-4" style="margin-top: 6px;">
+                                    <div class="form-group2">
+                                        <p class="expiry">CVV</p>
+                                        <input type="text" name="card_cvv" class="form-control expiryinput" placeholder="123">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="radiodiv" style="margin-bottom:10%; margin-top:20px">
+                        <button type="submit" name="pay" class="btn proceed" style="width:150px">Pay</button>
+                    </div>
+                    <div class="radiodiv" style=" margin-top: 15px;">
+                        <p class="paymentopt" style="margin-left: 0px;">We accept card payments</p>
+                        <img src="assets/card.png" class="img-fluid" alt="" srcset="" style="width:60%">
+                    </div>       
+                    <div class="radiodiv" style=" margin-top: 15px;">
+                        
+                        <img src="assets/stripe.jpeg" class="img-fluid" alt="" srcset="" style="width:60%">
+                    </div>
 
-                    </div>
-                    <div class="divbutton">
-                        <button type="submit" name="pay" class="btn proceed">Pay</button>
-                    </div>
                 </form>
             </div>
         </div>
-
     </div>
+
+    <script>
+        const radioBtns = document.querySelectorAll('[name=payment_option]')
+
+        radioBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                if(btn.value === "card") {
+                    document.querySelector(".hidden-box").style.display = "block"
+                }
+                else {
+                    document.querySelector(".hidden-box").style.display = "none"
+                }
+            })
+        })
+
+    </script>
 </body>
 
 </html>

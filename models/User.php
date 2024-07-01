@@ -30,16 +30,16 @@ class User {
         $result = $this->connection->prepare($query);
         $result->execute([
             'userId' => $userId,
-            'title' => $title,
-            'firstname' => $firstname ? $firstname : "NULL",
-            'middle_name' => $middle_name ? $middle_name : "NULL",
-            'lastname' => $lastname ? $lastname : "NULL",
-            'date_of_birth' => $dob ? $dob : "NULL",
-            'gender' => $gender ? $gender : "NULL",
-            'email' => $email ? $email : "NULL",
-            'passport' => $passport ? $passport : "NULL",
-            'country' => $country ? $country : "NULL",
-            'phone' => $phone ? $phone : "NULL",
+            'title' => $title ?? "",
+            'firstname' => $firstname,
+            'middle_name' => $middle_name ?? "",
+            'lastname' => $lastname,
+            'date_of_birth' => (!empty($dob) || $dob) ? date('Y-m-d', strtotime($dob)) : NULL,
+            'gender' => $gender ?? "",
+            'email' => $email ?? "",
+            'passport' => $passport ?? "",
+            'country' => $country ?? "",
+            'phone' => $phone ?? "",
         ]);
 
         if($result) {
@@ -49,9 +49,22 @@ class User {
                 "userId" => $userId,
                 "serviceId" => $serviceId
             ]);
+            
+            if($result) {
+                
+                $subQuery = "SELECT * FROM `user_services` WHERE `user_id` = '$userId' AND `service_id` = '$serviceId'";
+                $resultQuery = $this->connection->query($subQuery);
+                $resultQuery->execute();
 
-            if($result) return $userId;
+                $id = $resultQuery->fetch()['id'];
+
+                return [
+                    "userId" => $userId,
+                    "id" => $id
+                ];
+            }
             else return false;
+            
         }
         else {
             return false;
@@ -67,7 +80,19 @@ class User {
             "serviceId" => $serviceId
         ]);
 
-        if($result) return $userId;
+
+        if($result) {
+
+            $subQuery = "SELECT * FROM `user_services` WHERE `user_id` = '$userId' AND `service_id` = '$serviceId' ORDER BY id DESC";
+            $resultQuery = $this->connection->query($subQuery);
+            $resultQuery->execute();
+            $id = $resultQuery->fetch()['id'];
+            
+            return [
+                "userId" => $userId,
+                "id" => $id
+            ];
+        } 
         else return false;
     }
 
@@ -76,6 +101,15 @@ class User {
         $query = "SELECT * FROM `users` WHERE `user_id` = ?";
         $result = $this->connection->prepare($query);
         $result->execute([$user_id]);
+
+        return $result->fetch();
+    }
+
+    public function get_user_by_email($email)
+    {
+        $query = "SELECT * FROM `users` WHERE `email` = ?";
+        $result = $this->connection->prepare($query);
+        $result->execute([$email]);
 
         return $result->fetch();
     }
@@ -89,13 +123,21 @@ class User {
         return $result->fetchAll();
     }
 
-    public function searchUser ($query) {
-        $query = "SELECT * FROM `users` WHERE `firstname` LIKE '%$query%' OR `lastname` LIKE '%$query%' OR `email` LIKE '%$query%'";
+    public function searchUser ($search) {
+        $query = "SELECT * FROM `users` WHERE `firstname` LIKE '%$search%' OR `lastname` LIKE '%$search%' OR `email` LIKE '%$search%' OR `phone` LIKE '%$search%'";
         $result = $this->connection->prepare($query);
         $result->execute();
 
         return $result->fetchAll();
     }
+
+    // public function searchSubAdminUser ($search) {
+    //     $query = "SELECT * FROM `users` WHERE `firstname` LIKE '%$search%' OR `lastname` LIKE '%$search%' OR `email` LIKE '%$search%' OR `phone` LIKE '%$search%'";
+    //     $result = $this->connection->prepare($query);
+    //     $result->execute();
+
+    //     return $result->fetchAll();
+    // }
 
     public function delete_user($user_id)
     {

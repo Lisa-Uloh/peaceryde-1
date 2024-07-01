@@ -1,6 +1,6 @@
 <?php include("./inc/check_session.php") ?>
 
-<?php if(!isset($_SESSION["REF"])) header("Location: ./index.php"); ?>
+<?php if(!isset($_SESSION["REF"])) header("Location: ./"); ?>
 <?php 
     $users = new User($connect);
     $userServices = new UserService($connect);
@@ -37,11 +37,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php include("./google_analytics.php"); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>CheckOut</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icon.png">
+    <title>PeaceRyde Africa LLC - CheckOut</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Ubuntu:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/common.css" />
@@ -54,11 +56,12 @@
   <script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/px2code/posize/build/v1.00.3.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <style>
 
   </style>
 </head>
+
 <body style="background-color: #1161D9; overflow-x: hidden;">
     <div class="row">
         <div class="col-md-2">
@@ -76,27 +79,32 @@
                     <div style="margin-top: 20px;">
                         <p class="congp1">Congratulations!!! Payment Successful</p>
 
-                        <p class="congp2">You can now proceed back to your account to track the progress of the service you paid for.</p>
-
-                        <p class="congp3">For any enquiry call +1 (708) 318-0273</p>
+                        <?php if(!isset($_SESSION["LOGGED_USER"])): ?>
+                            <p class="congp2">Your login credentials have been sent to your email.</p>
+                            <p class="congp3">For any enquiry call +1 (302) 703-9867</p>
+                        <?php else: ?>
+                            <p class="congp2">You can now proceed back to your account to track the progress of the service you paid for.</p>
+                            <p class="congp3">For any enquiry call +1 (302) 703-9867</p>
+                        <?php endif; ?>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6 col-6">
                             <p class="amountpaid">Total Amount Paid</p>
+                            
                               <p class="paidby">Paid by</p>
                                 <p class="transdate">Transaction date</p>
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <p class="money"><?php round($total_price, 2); ?> (NGN <?= number_format(round($paystackPayment->convertToNaira($total_price), 2)); ?>)</p>
+                        <div class="col-md-6 col-sm-6 col-xs-6 col-6">
+                            <p class="money">($ <?= number_format($total_price, 2); ?>)</p>
                               <p class="successname"><?= $user["firstname"]; ?></p>
                                 <p class="successdate"><?= date("d F Y", strtotime($payment["date"]));  ?></p>
                         </div>
                         <div class="successbutton">
                             <?php if(isset($_SESSION['LOGGED_USER'])): ?>
-                                <a href="./Dashboard/index.php" class="btn proceed">Return to Account</a>
+                                <a href="./Dashboard/" class="btn proceed">Return to Account</a>
                             <?php else: ?>
-                                <a href="signin.php" class="btn proceed">Return to Account</a>
+                                <a href="signin" class="btn proceed">Login</a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -110,6 +118,7 @@
             unset($_SESSION['REF']);
             unset($_SESSION['REG_NO']);
             unset($_SESSION['PRICE']);
+            unset($_SESSION['SERVICE']);
         ?>
     </div>
 </body>

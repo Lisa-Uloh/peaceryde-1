@@ -4,7 +4,7 @@
  *  NULL -> FREE
  */
 
-use function PHPSTORM_META\map;
+// use function PHPSTORM_META\map;
 
  define("ADMIN_PORTAL_FEE", 30);
  define("BIOMETRICS_FEE", 90);
@@ -179,7 +179,6 @@ function get_visa_price($country) {
     return null;
 }
 
-
 function get_share_price($shares) {
     $def_price = 800;
     $price = ($shares * $def_price) / 10000000;
@@ -188,12 +187,17 @@ function get_share_price($shares) {
 
 
 function get_bi_price ($shares = 10000000) {
-    $price = get_share_price($shares);
+    // $price = get_share_price($shares);
+    $price = 200;
     $taxes =  $price * ((VAT + TAX_US) / 100);
+    $vat =  ($price * VAT) / 100;
+    $gross = ($price * TAX_US) / 100;
     $total = $price + $taxes;
 
     return [
         'tax' => $taxes,
+        'vat' => $vat,
+        'gross' => $gross,
         'total' => $total,
         'price' => $price
     ];
@@ -201,20 +205,22 @@ function get_bi_price ($shares = 10000000) {
 
 function get_twp () {
     $taxes = IMMIGRATION_FEE * ((VAT + TAX_US) / 100);
+    $vat = (IMMIGRATION_FEE * VAT) / 100;
+    $gross = (IMMIGRATION_FEE * TAX_US) / 100;
     $total = IMMIGRATION_FEE + $taxes;
 
     return [
         "approval" => IMMIGRATION_FEE,
+        "vat" => $vat,
+        "gross" => $gross,
         "tax" => $taxes,
         "total" => $total
     ];
 }
 
 function get_total_price($country) {
-    $FREE_BIOMETRIC = ['usa'];
-    $visa_price = get_visa_price($country);
-    
-    if(!$visa_price) return;
+    $FREE_BIOMETRIC = ['united states'];
+    $visa_price = get_visa_price($country) ?? 0;
     
     $fees_total = 0;
     
@@ -227,13 +233,16 @@ function get_total_price($country) {
     
     $taxes = $fees_total * ((VAT + TAX_US) / 100);
     $total_price = $fees_total + $taxes;
+    $vat = ($fees_total * VAT) / 100;
+    $gross = ($fees_total * TAX_US) / 100;
 
     $bio = in_array($country, $FREE_BIOMETRIC) ? 0 : BIOMETRICS_FEE;
     
     return [
         'bio' => $bio,
         'visa' => $visa_price,
-        'vat' => VAT,
+        'vat' => $vat,
+        'gross' => $gross,
         'Immgration' => IMMIGRATION_FEE,
         'admin' => ADMIN_PORTAL_FEE,
         'total_price' => $total_price,

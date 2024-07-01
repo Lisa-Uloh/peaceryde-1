@@ -2,9 +2,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Peace Ryde - <?= $title ? $title : 'Admin Dashboard' ?></title>
+    <title>PeaceRyde Africa LLC - <?= $title ? $title : 'Admin Dashboard' ?></title>
+   <link rel="shortcut icon" href="../assets/icon.png" >
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="style.311cc0a03ae53c54945b.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body class="font-inter antialiased bg-gray-100 text-gray-600" :class="{ 'sidebar-expanded': sidebarExpanded }" x-data="{ page: 'messages', sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true', msgSidebarOpen: true }" x-init="() => { $refs.contentarea.scrollTop = 99999999 }; $watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))">
@@ -23,5 +25,5 @@
         </div>
         <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             <?php include("./components/header.php"); ?>
-
+        <script defer src="./realtime.js"></script>
             

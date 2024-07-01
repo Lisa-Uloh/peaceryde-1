@@ -5,7 +5,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Peace Ryde - Change Password</title>
+		<title>PeaceRyde Africa LLC - Change Password</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link href="style.311cc0a03ae53c54945b.css" rel="stylesheet">
 	</head>
@@ -25,7 +25,7 @@
 					<div class="min-h-screen h-full flex flex-col after:flex-1">
 						<div class="flex-1">
 							<div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-								<a class="block" href="index.php">
+								<a class="block" href="./">
 									<svg width="32" height="32" viewBox="0 0 32 32">
 										<defs>
 											<linearGradient x1="28.538%" y1="20.229%" x2="100%" y2="108.156%" id="logo-a">

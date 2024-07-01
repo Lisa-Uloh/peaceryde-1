@@ -2,9 +2,11 @@
 
 session_start();
 
+//  include("./db/conf.php");
 include("./db/config.php");
 
 include("./utils/country_fee.php");
+include("./utils/store.php");
 include("./functions/index.php");
 include("./models/User.php");
 include("./models/Service.php");
@@ -20,5 +22,6 @@ include("./models/Upload.php");
 include("./models/Review.php");
 include("./models/Admin.php");
 include("./models/ResetUserPassword.php");
+include("./inc/lang.php");
 
-include("./payment/Paystack.php");
+include("./payments/Paystack.php");

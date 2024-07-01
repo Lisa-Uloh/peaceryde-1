@@ -23,6 +23,20 @@ class Admin {
         return $id;
     }
 
+    public function checkEmail($email)
+    {
+        $query = "SELECT * FROM `admin` WHERE `email` = ?";
+        $result = $this->connection->prepare($query);
+        $result->execute([$email]);
+
+        if($result->rowCount()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public function loginAdmin (array $credientials) 
     {
         extract($credientials);
@@ -44,6 +58,10 @@ class Admin {
                 "message" => "Logged in successfully",
                 "user" => $admin
             ];
+        }
+        else {
+            return ["status" => "error", "message" => "Wrong Password"];
+            exit();
         }
     } 
 
@@ -88,7 +106,7 @@ class Admin {
             VALUES (:adminId, :name, :email, :type, :password)";
         $result = $this->connection->prepare($query);
         $result->execute([
-            'adminId' => $admin_id ? $admin_id : $this->generate_id(),
+            'adminId' => $admin_id ?? $this->generate_id(),
             'name' => $name,
             'email' => $email,
             'type' => $type,
@@ -134,13 +152,14 @@ class Admin {
     {
         extract($admin);
 
-        $query = "INSERT INTO `sub_admin`(`services`, `countries`, `admin_id`, `status`) VALUES (:service, :country, :admin_id, :status)";
+        $query = "INSERT INTO `sub_admin`(`services`, `countries`, `admin_id`, `status`, `only_chat`) VALUES (:service, :country, :admin_id, :status, :chat)";
         $result = $this->connection->prepare($query);
         $result->execute([
-            'service' => $services,
+            'service' => json_encode($services),
             'country' => json_encode($countries),
             'admin_id' => $admin_id,
-            'status' => $status 
+            'status' => $status,
+            'chat' => $chat ?? 0
         ]);
 
         return $result;
@@ -152,7 +171,7 @@ class Admin {
         $result = $this->connection->prepare($query);
         $result->execute();
 
-        return $result->fetchAll();
+        return $result->fetchAll(); 
     }
 
     public function getAllSubAdmins () 
@@ -184,22 +203,22 @@ class Admin {
         return $status;
     }
 
-    public function getTakenCountries () {
-        $query = "SELECT countries FROM `sub_admin`";
-        $result = $this->connection->prepare($query);
-        $result->execute();
+    // public function getTakenCountries () {
+    //     $query = "SELECT countries FROM `sub_admin`";
+    //     $result = $this->connection->prepare($query);
+    //     $result->execute();
 
-        $countries = [];
+    //     $countries = [];
 
-        while ($row = $result->fetch()) {
-            $_countries = json_decode($row['countries']);
+    //     while ($row = $result->fetch()) {
+    //         $_countries = json_decode($row['countries']);
 
-            foreach ($_countries as $country) {
-                array_push($countries, $country);
-            }
+    //         foreach ($_countries as $country) {
+    //             array_push($countries, $country);
+    //         }
 
-        }
+    //     }
 
-        return $countries;
-    }
+    //     return $countries;
+    // }
 }

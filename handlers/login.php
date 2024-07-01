@@ -1,7 +1,8 @@
 <?php 
 session_start();
 
-include("../db/config.php");
+require_once("../db/config.php");
+// require_once("../db/conf.php");
 include("../models/UserLogin.php");
 
 $userLogins = new UserLogin($connect);
@@ -19,7 +20,12 @@ if(isset($_POST["login"])) {
         ];
 
         $_SESSION["ALERT"] = json_encode($alert);
-        header("Location: ../index.php");
+        if(isset($_POST["redirect"])) {
+            header("Location: $redirect");
+        }
+        else {
+            header("Location: ../signin");
+        }
     }
     else {
         $alert = [
@@ -34,6 +40,6 @@ if(isset($_POST["login"])) {
         ];
 
         $_SESSION['LOGGED_USER'] = json_encode($data);
-        header("Location: ../Dashboard/index.php");
+        header("Location: ../Dashboard/");
     }
 }

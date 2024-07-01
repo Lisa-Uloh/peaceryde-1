@@ -5,6 +5,7 @@
 <html dir="ltr" lang="en">
 
 <head>
+  <?php include("../google_analytics.php"); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -13,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./dist/image/logo.png">
-    <title>PeaceRyde</title>
+    <title>PeaceRyde Africa LLC</title>
     <!-- Custom CSS -->
     <link href="./assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +30,77 @@
     <link href="./dist/css/responsive.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+	div#google_translate_element {
+		visibility: hidden;
+		position: absolute;
+		z-index: -1;
+		/* display: none; */
+	}
 
+	div#google_translate_element div.goog-te-gadget-simple {
+		border: none;
+		background-color: transparent;
+		/*background-color: #17548d;*/
+		/*#e3e3ff*/
+
+	}
+
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value:hover {
+		text-decoration: none;
+	}
+
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span {
+		color: #aaa;
+	}
+
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span:hover {
+		color: white;
+	}
+
+	.goog-te-gadget-icon {
+		display: none !important;
+		/*background: url("url for the icon") 0 0 no-repeat !important;*/
+	}
+
+	/* Remove the down arrow */
+	/* when dropdown open */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="color: rgb(213, 213, 213);"] {
+		display: none;
+	}
+
+	/* after clicked/touched */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="color: rgb(118, 118, 118);"] {
+		display: none;
+	}
+
+	/* on page load (not yet touched or clicked) */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="color: rgb(155, 155, 155);"] {
+		display: none;
+	}
+
+	/* Remove span with left border line | (next to the arrow) in Chrome & Firefox */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="border-left: 1px solid rgb(187, 187, 187);"] {
+		display: none;
+	}
+
+	/* Remove span with left border line | (next to the arrow) in Edge & IE11 */
+	div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span[style="border-left-color: rgb(187, 187, 187); border-left-width: 1px; border-left-style: solid;"] {
+		display: none;
+	}
+
+	/* HIDE the google translate toolbar */
+	.goog-te-banner-frame.skiptranslate {
+		display: none !important;
+	}
+
+	body {
+		top: 0px !important;
+	}
+</style>
 </head>
+
+
 
 <body>
     <div class="preloader">
@@ -54,7 +124,13 @@
 
 
         <div class="page-wrapper" id="main">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()"> <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;
+                margin-top: 50px;">
+                  <rect y="6" width="19" height="3" fill="#A0BD1C"/>
+                  <rect y="12" width="19" height="3" fill="#A0BD1C"/>
+                  <rect width="19" height="3" fill="#A0BD1C"/>
+                  </svg>
+                  </span>
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="align-self-center">
@@ -229,16 +305,28 @@
      document.getElementById("myForm").style.display = "none";
      }
            </script>
-    <script>
-        function openNav() {
-          document.getElementById("sidebar").style.width = "260px";
-          document.getElementById("main").style.marginLeft = "260px";
+   <script>
+  function openNav() {
+    		
+            if  (screen.width >= 800) {
+                document.getElementById("sidebar").style.width = "260px";
+                document.getElementById("main").style.marginLeft = "260px";
+            } else {
+                document.getElementById("sidebar").style.width = "100%";
+                document.getElementById("main").style.marginLeft = "100%";
+            }
         }
-        
+            
+        /* Close Nav */
         function closeNav() {
-          document.getElementById("sidebar").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-          
+                
+            if (screen.width >= 768) {
+                document.getElementById("sidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";;
+            } else {
+                document.getElementById("sidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";;
+            }
         }
         </script>
         <script>
